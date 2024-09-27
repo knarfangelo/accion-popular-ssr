@@ -1,0 +1,19 @@
+/* Escritorio */
+.navegacion-escritorio {
+  display: flex;
+}
+
+/* Móvil */
+.navegacion-celular {
+  display: none;
+}
+
+/* Media Query para móviles */
+@media (max-width: 800px) {
+  .navegacion-escritorio {
+    display: none;
+  }
+  .navegacion-celular {
+    display: flex;
+  }
+}
