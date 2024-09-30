@@ -1,0 +1,13 @@
+swiper-container{
+  width: 100%;
+}
+
+.banner-encap-peruano{
+  width: 100%;
+}
+
+swiper-container::part(wrapper) {
+  -webkit-transition-timing-function:linear; 
+  -o-transition-timing-function:linear;
+  transition-timing-function:linear; 
+}

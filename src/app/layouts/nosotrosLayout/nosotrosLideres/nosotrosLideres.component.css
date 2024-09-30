@@ -1,0 +1,35 @@
+header{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-bottom: 150px;
+}
+h1 {
+text-align: center;
+color: #E31F27;
+text-align: center;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+font-family: Montserrat;
+font-size: 39.81px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+}
+.lider{
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  justify-content: center;
+}
+
+h2{
+  color: var(--Primary-600, #BF161C);
+  text-align: justify;
+  font-family: Montserrat;
+  font-size: 23.04px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}

@@ -24,15 +24,15 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       </ul>
       <ul class="sitemap-movil" id="sitemap-accion-popular"  [@slideInLeft]="sitemapVisible ? 'visible' : 'hidden'">
         <li class="icon-close"><button (click)="toggleSitemap()" ><img src="icons/close-partido-politico-peruano-ap.svg" alt="imagen para cerrar el responsive"></button></li>
-        <li><a href="/inicio"><img class="logo-accion-popular" src="icons/logo-partido-peruano-ap.svg" alt="logo para movil responsive de accion popular"></a></li>
+        <li><a href="/"><img class="logo-accion-popular" src="icons/logo-partido-peruano-ap.svg" alt="logo para movil responsive de accion popular"></a></li>
         <li><a class="inicio" href="/inicio" title="Inicio del partido">Inicio</a></li>
-        <li><a href="/nosotros" title="Conócenos - Partido">Nosotros</a></li>
+        <li><a href="/quienes-somos" title="Conócenos - Partido">Nosotros</a></li>
         <li><a href="/liderazgo" title="Liderazgo">Liderazgo</a></li>
         <li><a href="/capacitacion" title="Capacitación para nuevos mienbros para el partido">Capacitación</a></li>
         <li><a href="/documentos" title="Documentos del partido político peruano acción popular">Documentos</a></li>
-        <li><a href="/juventudes" title="Juventudes de acción popular">Juventudes</a></li>
+        <li><a href="/juventudes-accion-popular" title="Juventudes de acción popular">Juventudes</a></li>
         <li><a href="/noticias-eventos" title="Nuevas noticias de acción popular" >Noticias y Eventos</a></li>
-        <li class="unete-nosotros"><a href="/unete-a-nosotros" title="Formulario para nuevos integrantes">Unete a nosotros</a></li>
+        <li class="unete-nosotros"><a href="/formulario" title="Formulario para nuevos integrantes">Unete a nosotros</a></li>
       </ul>
     </nav> 
   `,

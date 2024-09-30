@@ -1,29 +1,34 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, Inject, PLATFORM_ID, signal } from '@angular/core';
-import { register, SwiperContainer } from 'swiper/element/bundle';
+import { register, SwiperContainer } from 'swiper/element';
 import { SwiperOptions } from 'swiper/types';
-
 @Component({
-  selector: 'app-swiper-home',
+  selector: 'app-home-encap',
   standalone: true,
   imports: [
     CommonModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
-    <swiper-container init=false class="swiper-banners">
+
+<a href="/encap">
+    <swiper-container init=false class="swiper-encap">
       <swiper-slide>
-        <img src="banners/banner-politicos-accion-popular.png" alt="politicos de todas las regiones del Perú de accion popular">
+        <img class="banner-encap-peruano" src="banners/encap-fuerza-popular.png" alt="encap-accion-popular">
       </swiper-slide>
       <swiper-slide>
-        <img src="banners/banner-politico-belaunde-terry.png" alt="belaunde terry saludando al pueblo peruano">
+        <img class="banner-encap-peruano" src="banners/encap-fuerza-popular.png" alt="encap-ap-2">
       </swiper-slide>
-    </swiper-container>
+      <swiper-slide>
+        <img class="banner-encap-peruano" src="banners/encap-fuerza-popular.png" alt="encap-ap-3">
+      </swiper-slide>
+    </swiper-container></a>
+
   `,
-  styleUrl: './swiper-home.component.css',
+  styleUrl: './homeEncap.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SwiperHomeComponent {
+export class HomeEncapComponent {
 
   swiperElements = signal<SwiperContainer | null>(null);
 
@@ -34,15 +39,15 @@ export class SwiperHomeComponent {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       register();
-      const swiperElemConstructor = document.querySelector('.swiper-banners');
+      const swiperElemConstructor = document.querySelector('.swiper-encap');
       const swiperOptions: SwiperOptions = {
-        navigation:{
-          enabled:true,
-          nextEl:'.swiper-button-next',
-          prevEl:'.swiper-button-prev',
-        },
-        slidesPerView: 1,
-        speed: 3000,
+        slidesPerView: 'auto',
+        speed: 20000,
+        loop: true,
+        autoplay: {
+        delay: 1,
+        disableOnInteraction: true
+      },
       };
       Object.assign(swiperElemConstructor!, swiperOptions);
       this.swiperElements.set(swiperElemConstructor as SwiperContainer);
@@ -50,4 +55,5 @@ export class SwiperHomeComponent {
     }
 
   }
+
 }

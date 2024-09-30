@@ -18,14 +18,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         <li class="correo-accion-popular"><a href="" title="correo de accion popular"><img src="icons/correo-peruano.svg" alt="correo electronico">info&#64;accionpopular.com.pe</a></li>
       </ul>
       <ul class="sitemap" id="sitemap-accion-popular">
-        <li><a class="inicio" href="/inicio" title="Inicio del partido">Inicio</a></li>
-        <li><a href="/nosotros" title="Conócenos - Partido">Nosotros</a></li>
-        <li><a href="/liderazgo" title="Liderazgo">Liderazgo</a></li>
+        <li><a class="inicio" href="/" title="Inicio del partido">Inicio</a></li>
+        <li><a href="/quienes-somos" title="Conócenos - Partido">Nosotros</a></li>
+        <li><a class="liderazgo" href="/" title="Liderazgo">Liderazgo</a></li>
         <li><a href="/capacitacion" title="Capacitación para nuevos mienbros para el partido">Capacitación</a></li>
         <li><a href="/documentos" title="Documentos del partido político peruano acción popular">Documentos</a></li>
-        <li><a href="/juventudes" title="Juventudes de acción popular">Juventudes</a></li>
+        <li><a href="/juventudes-accion-popular" title="Juventudes de acción popular">Juventudes</a></li>
         <li><a href="/noticias-eventos" title="Nuevas noticias de acción popular" >Noticias y Eventos</a></li>
-        <li><a href="/unete-a-nosotros" title="Formulario para nuevos integrantes">Unete a nosotros</a></li>
+        <li><a class="formulario" href="/formulario" title="Formulario para nuevos integrantes">Unete a nosotros</a></li>
       </ul>
     </nav>
   `,

@@ -1,0 +1,158 @@
+.titulos{
+  margin: 0 35px;
+}
+button{
+  cursor: pointer;
+}
+
+.slide-custom{
+  position: relative;
+}
+
+.slide-info{
+  box-sizing: border-box;
+  padding: 0 25px;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(227, 31, 38, 0.83);
+  top: 0;
+}
+
+.slide-button{
+display: flex;
+border: 0;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 16px;
+color: #fff;
+background: #BF161C;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+}
+.candidato{
+  height: 320px;
+  width: 450px;
+}
+.fondo-candidatos{
+  width: 100%;
+  object-fit: cover;
+  height: 560px;
+  display: flex;
+}
+.texto{
+  height: 160px;
+  width: 450px;
+  margin: 0;
+  display: flex;
+  position: relative;
+  background-color: rgba(115, 13, 16, 0.80);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.texto p{
+  font-size: 16px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 50%;
+  margin-left: 40px;
+}
+.foto{
+  position: absolute;
+  width: 206px;
+  object-fit: contain;
+  object-position: right;
+  right: 0;
+  bottom: 0;
+}
+.description{
+  margin: 40px 0;
+  margin-right: 25px;
+}
+.slide-info h1{
+  font-size: 55px;
+  margin: 0;
+}
+
+/* button 12 */
+.buttons {
+  display: flex;
+  flex-wrap: wrap; /* Permitir que los botones se envuelvan */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px 35px;
+  padding-top: 0;
+  gap: 45px; /* Espacio entre los botones */
+}
+
+.button-nav {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 10px;
+  color: #BF161C;
+  background-color: #fff;
+  border: 1px solid #BF161C;
+  border-radius: 10px;
+  flex: none;
+  flex-grow: 0;
+}
+@media (width < 1200px) {
+    .candidato h1{
+      font-size: 40px;
+    }
+}
+@media (width < 800px) {
+
+    .buttons{
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      margin-bottom: 20px;
+    }
+    .fondo-candidatos{
+      height: 800px;
+      position: absolute;
+      z-index: -1;
+    }
+    .candidato h1{
+      font-size: 35px;
+    }
+    .slide-info{
+      height: 100%;
+      position: static;
+      flex-direction: column;
+      padding: 30px 0;
+    }
+    .texto{
+      position: static;
+      height: auto;
+      display: block;
+    }
+    .texto p{
+      text-align: center;
+      width: 100%;
+      margin: 45px 0;
+    }
+    .fondo-candidatos{
+      height: 100%;
+    }
+    .foto{
+      position: static;
+      width: 100%;
+      object-position: bottom center;
+    }
+    .texto, .candidato{
+      width: 90%;
+    }
+    .candidato{
+      height: auto;
+    }
+}

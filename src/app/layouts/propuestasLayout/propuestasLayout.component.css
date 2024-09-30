@@ -1,0 +1,103 @@
+header{
+  width: 100%;
+}
+
+.lista{display: flex;}
+
+app-navegacion ul{
+  border: 1px solid red;
+}
+.icon-a{
+  display: flex;
+  width: 200px;
+  margin-right: 15px;
+  height: 100%;
+}
+.imagen-banner{
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+.icon-portada{
+  width: 200px;
+  height: auto;
+}
+
+.banner{
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 80px;
+  align-items: center;
+  justify-content: center;
+}
+.fondo{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: -1;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 80px 0;
+  gap: 80px;
+}
+.propuesta{
+  display: flex;
+  max-width: 680px;
+  gap: 20px;
+}
+
+.numero{
+  color:#DE1A22;
+  font-family: Montserrat;
+  font-size: 100px;
+  font-weight: 900;
+  line-height: 121.9px;
+  text-align: justified;
+  margin-top: 0;
+}
+
+.titulo{
+color: #DE1A22;
+margin-top: 0;
+font-family: Montserrat;
+font-size: 39.81px;
+font-weight: 900;
+line-height: 48.53px;
+text-align: justified;
+}
+
+.contenido p {
+  text-align: justify;
+}
+
+@media (width < 900px) {
+  h1{
+    margin: 0;
+  }
+  .banner{
+    padding: 0;
+  }
+  p{
+    margin: 0;
+  }
+  .propuesta{
+    margin: 0 20px;
+  }
+  .numero{
+    font-size: 40px;
+    margin-bottom: auto;
+    line-height: 80px;
+  }
+  .titulo{
+    font-size: 20px;
+    line-height: 30px;
+  }
+}

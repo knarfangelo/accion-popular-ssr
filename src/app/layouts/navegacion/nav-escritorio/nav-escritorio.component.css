@@ -12,7 +12,6 @@ a{
   display: flex;
   flex-direction: column;
   gap: 32px;
-  position: fixed;
   align-items: center;
   z-index: 1000;
   box-sizing: border-box;
@@ -45,11 +44,14 @@ a{
   gap: 8px;
   font-weight: 700;
 }
-
+.liderazgo{
+  color: rgb(187, 187, 187) !important;
+}
 .navegacion-escritorio .sitemap{
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 
 .navegacion-escritorio .sitemap a{
@@ -59,7 +61,20 @@ a{
 .navegacion-escritorio .sitemap .inicio{
   color: #E31F27;
 }
-
+.formulario{
+  background: #e31f27;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  border-radius: 15px;
+  color: #fff;
+}
+.sitemap li .formulario{
+  color: #fff;
+}
 /*Responsive*/
 @media (width < 1200px){
   .navegacion-escritorio{

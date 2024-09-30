@@ -1,0 +1,52 @@
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 60px 0;
+}
+
+h1{
+  color: #DE1A22;
+  margin-top: 0;
+  font-family: Montserrat;
+  font-size: 47.78px;
+  font-style: normal;
+  font-weight: 900;
+  text-align: center;
+  line-height: normal;
+}
+
+main{
+  display: flex;
+  align-items: center;
+  max-width: 1130px;
+  margin: 0 20px;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.buttons{
+  display: flex;
+  gap: 20px;
+}
+.buttons a{
+  display: flex;
+  background:#E31F27;
+  border-radius: 10px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 8px 16px;
+  gap: 48px;
+}
+
+@media (width < 900px) {
+  h1{
+    font-size: 39.81px;
+    margin: 20px 20px;
+  }
+}
