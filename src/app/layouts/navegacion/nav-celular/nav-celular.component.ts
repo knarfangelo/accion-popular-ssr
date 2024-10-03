@@ -27,7 +27,15 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         <li><a href="/"><img class="logo-accion-popular" src="icons/logo-partido-peruano-ap.svg" alt="logo para movil responsive de accion popular"></a></li>
         <li><a class="inicio" href="/" title="Inicio del partido">Inicio</a></li>
         <li><a href="quienes-somos" title="Conócenos - Partido">Nosotros</a></li>
-        <li><a href="/liderazgo" title="Liderazgo">Liderazgo</a></li>
+        <li>
+          <button (click)="toggleLiderazgo()" class="liderazgo-btn">Liderazgo</button>
+          <ul class="liderazgo-desplegable" [@slideInOut]="liderazgoDesplegado ? 'open' : 'closed'">
+            <li class="liderazgo-item"><a class="sub-url" href="comite-ejecutivo-nacional"><span>•</span> Comité Ejecutivo Nacional</a></li>
+            <li class="liderazgo-item"><a class="sub-url" href=""><span>•</span> Comité Político</a></li>
+            <li class="liderazgo-item"><a class="sub-url" href=""><span>•</span>Comités Ejecutivos Departamentales y Metropolitanos</a></li>
+            <li class="liderazgo-item"><a class="sub-url" href="bancada"><span>•</span> Bancada</a></li>
+          </ul>
+        </li>
         <li><a href="capacitacion" title="Capacitación para nuevos mienbros para el partido">Capacitación</a></li>
         <li><a href="documentos" title="Documentos del partido político peruano acción popular">Documentos</a></li>
         <li><a href="/juventudes-accion-popular" title="Juventudes de acción popular">Juventudes</a></li>
@@ -52,6 +60,23 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       transition('visible => hidden', [
         animate('1000ms ease-in')
       ])
+    ]),
+    trigger('slideInOut', [
+      state('closed', style({
+        height: '0',
+        overflow: 'hidden',
+        opacity: 0,
+      })),
+      state('open', style({
+        height: '*',
+        opacity: 1,
+      })),
+      transition('closed => open', [
+        animate('300ms ease-out')
+      ]),
+      transition('open => closed', [
+        animate('300ms ease-in')
+      ])
     ])
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -59,9 +84,14 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class NavCelularComponent {
 
   sitemapVisible = false;
+  liderazgoDesplegado = false;
 
   toggleSitemap() {
     this.sitemapVisible = !this.sitemapVisible;
+  }
+
+  toggleLiderazgo() {
+    this.liderazgoDesplegado = !this.liderazgoDesplegado;
   }
 
 }

@@ -94,7 +94,7 @@ a{
   height: 100vh;
   box-sizing: border-box;
   gap: 20px;
-  padding: 20px;
+  padding: 18px;
 }
 .sitemap-movil .logo-accion-popular {
   width: 100%;
@@ -134,3 +134,28 @@ a{
 
 /*Animacion de despliegue*/
 
+.liderazgo-desplegable span{
+  color: #E31F27;
+}
+
+.liderazgo-desplegable {
+  font-size: 14px;
+}
+.liderazgo-desplegable li{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.liderazgo-item{
+  margin: 15px 0;
+}
+.sub-url{
+  display: flex;
+  gap: 5px;
+}
+.liderazgo-btn{
+  background-color: transparent;
+  border: 0;
+  font-weight: 600;
+  padding: 0;
+}
