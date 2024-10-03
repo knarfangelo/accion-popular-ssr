@@ -59,5 +59,6 @@ main{
 @media (width < 800px) {
   main{
     grid-template-columns: minmax(0, 320px);
+    margin: 20px;
   }
 }
