@@ -12,22 +12,19 @@ header{
   width: 90%;
   margin: auto;
 }
-
 main{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 80px;
 }
-
 p {
   color: #000;
-  text-align: justify;
-  font-family: Montserrat;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+text-align: justify;
+
+/* Paragraph 01 S/SemiBold */
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: bold;
+line-height: normal;
 }
 h1{
   color:  #E31F27;
@@ -39,28 +36,23 @@ font-style: normal;
 font-weight: 900;
 line-height: normal;
 }
-.valores .valor h2 {
+swiper-slide img{
+  display: flex;
+  margin: auto;
+}
+swiper-slide h2{
   color: var(--Primary-400, #E94047);
 text-align: center;
-
-/* H6/Black */
 font-family: Montserrat;
 font-size: 19.2px;
 font-style: normal;
 font-weight: 900;
 line-height: normal;
 }
-.valores{
+swiper-slide{
   display: flex;
+  flex-direction: column;
+  gap: 0px;
   align-items: center;
-  width: 100%;
   justify-content: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-.valor {
-  max-width: 300px;
-}
-.valor img{
-  width: 100%;
 }

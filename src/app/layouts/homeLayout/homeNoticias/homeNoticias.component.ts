@@ -14,7 +14,7 @@ import { SwiperOptions } from 'swiper/types';
   <header>
     <h1 class="titulo">Últimas Noticias de Acción Popular</h1>
     <main>
-      <swiper-container init=false class="swiper-noticias">
+      <swiper-container init="false" class="swiper-noticias">
         <swiper-slide>
           <a class="container-noticias" href="https://rpp.pe/politica/congreso/eduardo-salhuana-encabezara-lista-para-la-mesa-directiva-del-congreso-noticia-1571893?ref=rpp" target="_blank">
             <img src="noticias/eduardo-salguana-mesa-directiva-congreso.webp" alt="Elvir Vergara exponiendo una propuesta">
@@ -76,19 +76,18 @@ export class HomeNoticiasComponent {
       register();
       const swiperElemConstructor = document.querySelector('.swiper-noticias');
       const swiperOptions: SwiperOptions = {
-        navigation:{
-          enabled:true,
-          nextEl:'.swiper-button-next',
-          prevEl:'.swiper-button-prev',
-        },
         slidesPerView: 'auto',
         spaceBetween:34,
+        pagination: true,
         breakpoints: {
           900: {
+            slidesPerView:1
+          },
+          1100: {
             slidesPerView:3
           },
           1200: {
-            slidesPerView:4
+            slidesPerView:4,
           }
         },
         speed: 3000,

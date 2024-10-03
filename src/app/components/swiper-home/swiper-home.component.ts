@@ -31,9 +31,8 @@ export class SwiperHomeComponent {
   swiperElements = signal<SwiperContainer | null>(null);
 
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-
-  }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       register();

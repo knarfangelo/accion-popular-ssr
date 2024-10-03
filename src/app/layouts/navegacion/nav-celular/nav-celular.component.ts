@@ -19,7 +19,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       </ul>
       <ul class="navegacion-movil-responsivo">
         <li><button (click)="toggleSitemap()"><img src="icons/burguer-responsive.svg" alt="boton responsive para moviles"></button></li>
-        <li><a href="/inicio"><img src="icons/logo-partido-peruano-ap.svg" alt="logo de acción popular"></a></li>
+        <li><a href="/"><img src="icons/logo-partido-peruano-ap.svg" alt="logo de acción popular"></a></li>
         <li class="unete"><a href="/formulario">Únete</a></li>
       </ul>
       <ul class="sitemap-movil" id="sitemap-accion-popular"  [@slideInLeft]="sitemapVisible ? 'visible' : 'hidden'">
@@ -31,8 +31,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
           <button (click)="toggleLiderazgo()" class="liderazgo-btn">Liderazgo</button>
           <ul class="liderazgo-desplegable" [@slideInOut]="liderazgoDesplegado ? 'open' : 'closed'">
             <li class="liderazgo-item"><a class="sub-url" href="comite-ejecutivo-nacional"><span>•</span> Comité Ejecutivo Nacional</a></li>
-            <li class="liderazgo-item"><a class="sub-url" href=""><span>•</span> Comité Político</a></li>
-            <li class="liderazgo-item"><a class="sub-url" href=""><span>•</span>Comités Ejecutivos Departamentales y Metropolitanos</a></li>
+            <li class="liderazgo-item"><a class="no-habilitado sub-url"><span>•</span> Comité Político</a></li>
+            <li class="liderazgo-item"><a class="no-habilitado sub-url"><span>•</span>Comités Ejecutivos Departamentales y Metropolitanos</a></li>
             <li class="liderazgo-item"><a class="sub-url" href="bancada"><span>•</span> Bancada</a></li>
           </ul>
         </li>

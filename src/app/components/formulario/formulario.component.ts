@@ -13,10 +13,10 @@ import { HttpClient } from '@angular/common/http';
     FooterComponent
 ],
   template: `
-    
-  <header>
     <app-navegacion>
     </app-navegacion>
+  <header>
+    
     <form class="formulario" action="">
       <h1>Bienvenido</h1>
       <p>Afíliate completando este formulario para ser parte de nuestro gran partido, y construyamos juntos el país que merecemos.</p>
@@ -95,9 +95,9 @@ import { HttpClient } from '@angular/common/http';
         <p>Al continuar, confirmo que he leído y acepto los Términos y Condiciones</p>
       </label>
       <input class="submit" type="submit" value="Enviar">
-    </form>
-    <app-footer></app-footer>
+    </form> 
   </header>
+  <app-footer></app-footer>
   
   `,
   styleUrl: './formulario.component.css',

@@ -58,7 +58,12 @@ register()
             </p>
           </a>
         </swiper-slide>
+       
       </swiper-container>
+      <div class="buttons">
+        <button class="swiper-button-prev"> < </button>
+        <button class="swiper-button-next"> > </button>
+      </div>
     </main>
   </header>
     <app-footer></app-footer>
@@ -84,6 +89,7 @@ export class ActualidadComponent {
           nextEl:'.swiper-button-next',
           prevEl:'.swiper-button-prev',
         },
+        loop: true,
         slidesPerView: 'auto',
         spaceBetween:34,
         breakpoints: {

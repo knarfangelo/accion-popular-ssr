@@ -49,12 +49,39 @@ main{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.buttons{
+  display: none;
+}
 @media (width < 800px){
   main {
     margin: 20px;
   }
   .titulo{
     margin: 50px 20px;
+  }
+  .swiper-button-next{
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 50px;
+    border: 0;
+    color: #fff;
+    background-color: #E31F27;
+  }
+  .swiper-button-prev{
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 50px;
+    border: 0;
+    color: #fff;
+    background-color: #E31F27;
+  }
+  .buttons{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
   }
 }

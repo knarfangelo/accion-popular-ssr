@@ -123,6 +123,7 @@ a{
 
 .unete-nosotros{
   background-color: #E31F27;
+  border-radius: 10px;
 }
 .sitemap-movil .unete-nosotros a{
   color: #fff;
@@ -158,4 +159,7 @@ a{
   border: 0;
   font-weight: 600;
   padding: 0;
+}
+.no-habilitado, .no-habilitado span{
+  color: gray !important;
 }
