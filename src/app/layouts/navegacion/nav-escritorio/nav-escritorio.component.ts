@@ -24,7 +24,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         <li class="liderazgo-lista">
           <a class="liderazgo" (click)="desplegarLiderazgo($event)" title="Liderazgo">Liderazgo</a>
           <ul class="liderazgo-desplegable" [@slideInOut]="liderazgoDesplegado ? 'open' : 'closed'">
-            <li><a class="no-habilitado" href=""><span>•</span> Comité Ejecutivo Nacional</a></li>
+            <li><a href="comite-ejecutivo-nacional"><span>•</span> Comité Ejecutivo Nacional</a></li>
             <li><a class="no-habilitado" href=""><span>•</span> Comité Político</a></li>
             <li><a class="no-habilitado" href=""><span>•</span> Comités Ejecutivos Departamentales y Metropolitanos</a></li>
             <li><a href="bancada"><span>•</span> Bancada</a></li>
