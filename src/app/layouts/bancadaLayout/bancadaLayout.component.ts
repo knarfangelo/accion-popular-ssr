@@ -15,7 +15,10 @@ import { FooterComponent } from "../footer/footer.component";
   template: `
   <header>
     <app-navegacion></app-navegacion>
-    <img class="banner" src="congresistas/banner-congresistas.png" alt="">
+    <div class="banner">
+        <h1>CONGRESO Y PARLAMENTO ANDINO</h1>
+        <img class="img-banner" src="banners/belaunde-terry-pueblo-peruano.webp" alt="banner de belaunde saludando al pueblo peruano">
+    </div>
   <main>
   @for (congresista of congresistas; track $index) {
    <article>
