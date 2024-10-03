@@ -1,7 +1,8 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, Inject, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, Inject, PLATFORM_ID, signal } from '@angular/core';
 import { ILideres, lideresJSON } from './BD/lideres';
-import { register } from 'swiper/element';
+import { register, SwiperContainer } from 'swiper/element';
+import { SwiperOptions } from 'swiper/types';
 @Component({
   selector: 'app-nosotros-lideres',
   standalone: true,
@@ -13,7 +14,7 @@ import { register } from 'swiper/element';
     <header>
       <h1>LÍDERES HISTÓRICOS</h1>
       <img class="banner-lideres" src="nosotros/banner-lideres.png" alt="banner de peruanos celebrando">
-      <swiper-container>
+      <swiper-container init=false class="swiper-lideres">
       @for (item of items; track $index) {
       <swiper-slide>
         <div class="descripcion">
@@ -31,6 +32,7 @@ import { register } from 'swiper/element';
 })
 export class NosotrosLideresComponent {
   items:ILideres[] = lideresJSON;
+  swiperElements = signal<SwiperContainer | null>(null);
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
    
@@ -39,6 +41,27 @@ export class NosotrosLideresComponent {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
     register();
+    if (isPlatformBrowser(this.platformId)) {
+      register();
+      const swiperElemConstructor = document.querySelector('.swiper-lideres');
+      const swiperOptions: SwiperOptions = {
+        navigation:{
+          enabled:true,
+          nextEl:'.swiper-button-next',
+          prevEl:'.swiper-button-prev',
+        },
+        loop: true,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+        },
+        slidesPerView: 1,
+        speed: 3000,
+      };
+      Object.assign(swiperElemConstructor!, swiperOptions);
+      this.swiperElements.set(swiperElemConstructor as SwiperContainer);
+      this.swiperElements()?.initialize();  
+    }
     }
   }
 

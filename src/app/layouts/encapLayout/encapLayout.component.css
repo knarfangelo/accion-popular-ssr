@@ -39,3 +39,9 @@ font-weight: 400;
 line-height: normal;
 max-width: 800px;
 }
+
+@media (width < 900px){
+  main{
+    margin: 15px;
+  }
+}
