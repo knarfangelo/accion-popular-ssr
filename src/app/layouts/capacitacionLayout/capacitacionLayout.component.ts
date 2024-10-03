@@ -33,8 +33,8 @@ import { FooterComponent } from "../footer/footer.component";
       <img class="capacitacion" src="capacitacion/capacitacion.png" alt="capacitacion accion popular">
     </article>
       <div class="buttons">
-        <a href="">Inscríbete en un curso</a>
-        <a href="">Ver más sobre nuestros programas de capacitación</a>
+        <a class="no-habilitado">Inscríbete en un curso</a>
+        <a href="cursos">Ver más sobre nuestros programas de capacitación</a>
       </div>
     
     </main>

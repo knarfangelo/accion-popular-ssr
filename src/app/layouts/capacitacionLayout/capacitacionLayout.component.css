@@ -19,7 +19,9 @@ app-navegacion ul{
 h1{
   color: #DE1A22;
 }
-
+.no-habilitado{
+  background-color: gray !important;
+}
 
 header{
   width: 100%;

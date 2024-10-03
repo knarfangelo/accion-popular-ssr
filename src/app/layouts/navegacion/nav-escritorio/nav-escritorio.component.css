@@ -19,7 +19,9 @@ a{
   right: 0;
   margin: auto;
 }
-
+.no-habilitado{
+  color: gray !important;
+}
 .navegacion-escritorio .redes{
   width: 100%;
   background-color: #000;
@@ -45,7 +47,7 @@ a{
   font-weight: 700;
 }
 .liderazgo{
-  color: rgb(187, 187, 187) !important;
+  cursor: pointer;
 }
 .navegacion-escritorio .sitemap{
   display: flex;
@@ -64,6 +66,7 @@ a{
 .formulario{
   background: #e31f27;
   justify-content: center;
+  box-sizing: border-box;
   width: 100%;
   height: 50%;
   display: flex;
@@ -74,6 +77,38 @@ a{
 }
 .sitemap li .formulario{
   color: #fff;
+}
+.liderazgo-lista{
+  display: flex;
+  position: relative;
+}
+
+.liderazgo-desplegable{
+  position: absolute;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 15px;
+  width: 500px;
+  top: 30px;
+  left: 0;
+}
+.liderazgo-desplegable li{
+  font-size: 14px;
+  color: #000;
+  padding: 0px;
+  margin: 8px 10px;
+}
+.liderazgo-desplegable {
+
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.liderazgo-desplegable li a span{
+  color: #e31f27;
+}
+.liderazgo-desplegable li a:hover{
+  color: #e31f27;
 }
 /*Responsive*/
 @media (width < 1200px){

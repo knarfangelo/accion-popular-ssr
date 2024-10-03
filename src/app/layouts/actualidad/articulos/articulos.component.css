@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+::ng-deep h1 {
+  text-align: center;
+}
+::ng-deep ol {
+  padding: 0;
+}
+
+article{
+  width: 80%;
+  margin: 150px auto;
+  max-width: 980px;
+}

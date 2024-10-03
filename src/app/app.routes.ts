@@ -7,6 +7,10 @@ import { CapacitacionLayoutComponent } from './layouts/capacitacionLayout/capaci
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { EncapLayoutComponent } from './layouts/encapLayout/encapLayout.component';
 import { NormativaComponent } from './components/normativa/normativa.component';
+import { BancadaLayoutComponent } from './layouts/bancadaLayout/bancadaLayout.component';
+import { CursosLayoutComponent } from './layouts/cursosLayout/cursosLayout.component';
+import { ActualidadComponent } from './layouts/actualidad/actualidad.component';
+import { ComiteEjecutivoNacionalComponent } from './layouts/comite-ejecutivo-nacional/comite-ejecutivo-nacional.component';
 
 export const routes: Routes = [
     { path: '', component:HomeLayoutComponent},
@@ -18,4 +22,8 @@ export const routes: Routes = [
     { path: 'documentos', component:NormativaComponent},
     { path: 'normativa', component:NormativaComponent},
     { path: 'encap', component:EncapLayoutComponent},
+    { path: 'bancada', component:BancadaLayoutComponent},
+    { path: 'cursos', component:CursosLayoutComponent},
+    { path: 'noticias-eventos', component:ActualidadComponent},
+    { path: 'comite-ejecutivo-nacional', component:ComiteEjecutivoNacionalComponent},
 ];

@@ -18,6 +18,9 @@ import { SwiperOptions } from 'swiper/types';
       <swiper-slide>
         <img src="banners/banner-politico-belaunde-terry.png" alt="belaunde terry saludando al pueblo peruano">
       </swiper-slide>
+      <swiper-slide>
+        <img src="banners/banner-politicos-juventudes.png" alt="belaunde terry saludando al pueblo peruano">
+      </swiper-slide>
     </swiper-container>
   `,
   styleUrl: './swiper-home.component.css',
@@ -40,6 +43,11 @@ export class SwiperHomeComponent {
           enabled:true,
           nextEl:'.swiper-button-next',
           prevEl:'.swiper-button-prev',
+        },
+        loop: true,
+        autoplay: {
+          delay: 1800,
+          disableOnInteraction: false,
         },
         slidesPerView: 1,
         speed: 3000,

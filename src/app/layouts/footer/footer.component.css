@@ -3,6 +3,8 @@ footer{
   background-color: #000;
   color: #fff;
   padding: 40px 20px;
+  justify-content: space-around;
+  align-items: center;
 }
 ul,li {
   list-style: none;
@@ -13,7 +15,9 @@ ul,li {
 
 main{
   display: flex;
-  width: 80%;
+  align-items: center;
+  width: 100%;
+  margin: auto;
   justify-content: space-around;
 }
 .logo-black {
@@ -62,6 +66,9 @@ a {
   }
 }
 @media (width < 800px){
+  footer{
+    flex-direction: column;
+  }
   main{
     flex-direction: column;
   }

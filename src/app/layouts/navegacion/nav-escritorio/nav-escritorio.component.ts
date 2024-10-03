@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, ElementRef } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-nav-escritorio',
@@ -10,26 +11,68 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   template: `
   <nav class="navegacion-escritorio">
       <ul class="redes" id="redes-accion-popular">
-        <li><a href="" title="Tiktok de acción popular"><img src="icons/tiktok-peruano.svg" alt="tiktok"></a></li>
-        <li><a href="" title="facebook de acción popular"><img src="icons/facebook-peruano.svg" alt="facebook"></a></li>
-        <li><a href="" title="twitter de acción popular"><img src="icons/twitter-peruano.svg" alt="twitter"></a></li>
-        <li><a href="" title="instagram de accion popular"><img src="icons/instagram-peruano.svg" alt="instagram"></a></li>
-        <li><a href="" title="youtube de accion popular"><img src="icons/youtube-peruano.svg" alt="youtube"></a></li>
+        <li><a href="https://www.tiktok.com/@accionpopular.pe" title="Tiktok de acción popular"><img src="icons/tiktok-peruano.svg" alt="tiktok"></a></li>
+        <li><a href="https://www.facebook.com/people/Acci%C3%B3n-Popular/61566219825204/" title="facebook de acción popular"><img src="icons/facebook-peruano.svg" alt="facebook"></a></li>
+        <li><a href="https://x.com/accion_popular_" title="twitter de acción popular"><img src="icons/twitter-peruano.svg" alt="twitter"></a></li>
+        <li><a href="https://www.instagram.com/accionpopularpe/" title="instagram de accion popular"><img src="icons/instagram-peruano.svg" alt="instagram"></a></li>
+        <li><a href="https://www.youtube.com/@AccionPopularPE" title="youtube de accion popular"><img src="icons/youtube-peruano.svg" alt="youtube"></a></li>
         <li class="correo-accion-popular"><a href="" title="correo de accion popular"><img src="icons/correo-peruano.svg" alt="correo electronico">info&#64;accionpopular.com.pe</a></li>
       </ul>
       <ul class="sitemap" id="sitemap-accion-popular">
         <li><a class="inicio" href="/" title="Inicio del partido">Inicio</a></li>
         <li><a href="/quienes-somos" title="Conócenos - Partido">Nosotros</a></li>
-        <li><a class="liderazgo" href="/" title="Liderazgo">Liderazgo</a></li>
-        <li><a href="/capacitacion" title="Capacitación para nuevos mienbros para el partido">Capacitación</a></li>
+        <li class="liderazgo-lista">
+          <a class="liderazgo" (click)="desplegarLiderazgo($event)" title="Liderazgo">Liderazgo</a>
+          <ul class="liderazgo-desplegable" [@slideInOut]="liderazgoDesplegado ? 'open' : 'closed'">
+            <li><a class="no-habilitado" href=""><span>•</span> Comité Ejecutivo Nacional</a></li>
+            <li><a class="no-habilitado" href=""><span>•</span> Comité Político</a></li>
+            <li><a class="no-habilitado" href=""><span>•</span> Comités Ejecutivos Departamentales y Metropolitanos</a></li>
+            <li><a href="bancada"><span>•</span> Bancada</a></li>
+          </ul>
+        </li>
+        <li><a href="/capacitacion" title="Capacitación para nuevos miembros para el partido">Capacitación</a></li>
         <li><a href="/documentos" title="Documentos del partido político peruano acción popular">Documentos</a></li>
         <li><a href="/juventudes-accion-popular" title="Juventudes de acción popular">Juventudes</a></li>
-        <li><a href="/noticias-eventos" title="Nuevas noticias de acción popular" >Noticias y Eventos</a></li>
-        <li><a class="formulario" href="/formulario" title="Formulario para nuevos integrantes">Unete a nosotros</a></li>
+        <li><a href="/noticias-eventos" title="Juventudes de acción popular">Noticias y eventos</a></li>
+        <li><a class="formulario" href="/formulario" title="Formulario para nuevos integrantes">Únete a nosotros</a></li>
       </ul>
     </nav>
   `,
-  styleUrl: './nav-escritorio.component.css',
+  styleUrls: ['./nav-escritorio.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('slideInOut', [
+      state('closed', style({
+        height: '0px',
+        overflow: 'hidden',
+      })),
+      state('open', style({
+        height: '*',
+      })),
+      transition('closed => open', [
+        animate('300ms ease-in-out')
+      ]),
+      transition('open => closed', [
+        animate('300ms ease-in-out')
+      ]),
+    ])
+  ]
 })
-export class NavEscritorioComponent { }
+export class NavEscritorioComponent {
+  liderazgoDesplegado = false;
+
+  constructor(private eRef: ElementRef) { }
+
+  desplegarLiderazgo(event: Event) {
+    event.stopPropagation(); // Evita que el clic en el propio menú cierre el desplegable
+    this.liderazgoDesplegado = !this.liderazgoDesplegado;
+  }
+
+  @HostListener('document:click', ['$event'])
+  cerrarLiderazgo(event: Event) {
+    // Verifica si el clic ocurrió fuera del menú de liderazgo
+    if (!this.eRef.nativeElement.contains(event.target)) {
+      this.liderazgoDesplegado = false;
+    }
+  }
+}

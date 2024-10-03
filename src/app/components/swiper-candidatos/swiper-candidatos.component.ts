@@ -18,8 +18,8 @@ import { ICandidato } from './BD/ICandidato';
     <h1>Acción Popular</h1></div>
     <div class="buttons">
       <button class="button-nav" (click)="updateInfo(0)">Presidente</button>
-      <button class="button-nav" (click)="updateInfo(1)">Vicepresidente</button>
-      <button class="button-nav" (click)="updateInfo(2)">Secretario General</button>
+      <button class="button-nav" (click)="updateInfo(1)">Secretario Nacional General</button>
+      <button class="button-nav" (click)="updateInfo(2)">Vicepresidente</button>
     </div>
     <main>
     <swiper-container init=false class="swiper-candidato">
@@ -33,7 +33,7 @@ import { ICandidato } from './BD/ICandidato';
           <div class="description">
           <p>{{candidato.descripcion}}</p>
           <p>{{candidato.descripcion2}}</p></div>
-          <button class="slide-button">Leer Biografía</button></div>
+        </div>
           <div class="texto"><p>“Volver a Belaunde”</p><img class="foto" [src]="candidato.foto" [alt]="candidato.cargo"></div>
             
         </div>
