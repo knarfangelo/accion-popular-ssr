@@ -57,9 +57,6 @@ main{
 }
 
 @media (width < 800px) {
-  .banner {
-    margin-top: 120px;
-  }
   main{
     grid-template-columns: minmax(0, 320px);
   }

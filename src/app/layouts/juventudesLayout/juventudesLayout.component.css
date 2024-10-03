@@ -67,10 +67,16 @@ article .contenido{
 
 @media (width < 900px) {
   h1{
-    font-size: 40px;
+    font-size: 30px;
   }
   article{
     flex-direction: column;
+    margin: 0;
+    margin-top: 40px;
+  }
+  header{
+    box-sizing: border-box;
+    padding: 0 20px;
   }
   img{
     width: 95%;

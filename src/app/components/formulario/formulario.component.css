@@ -160,9 +160,6 @@ label .map{
 }
 .lista{display: flex;}
 
-app-navegacion ul{
-  border: 1px solid red;
-}
 .icon-a{
   display: flex;
   width: 200px;

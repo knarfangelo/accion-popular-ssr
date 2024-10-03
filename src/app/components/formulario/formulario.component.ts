@@ -16,7 +16,6 @@ import { HttpClient } from '@angular/common/http';
     
   <header>
     <app-navegacion>
-    <li class="lista"><a class="icon-a" href=""><img class="icon-portada" src="/inicio/portada.svg" alt=""></a></li>
     </app-navegacion>
     <form class="formulario" action="">
       <h1>Bienvenido</h1>

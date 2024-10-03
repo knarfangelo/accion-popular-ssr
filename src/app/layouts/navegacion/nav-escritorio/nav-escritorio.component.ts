@@ -16,7 +16,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         <li><a href="https://x.com/accion_popular_" title="twitter de acción popular"><img src="icons/twitter-peruano.svg" alt="twitter"></a></li>
         <li><a href="https://www.instagram.com/accionpopularpe/" title="instagram de accion popular"><img src="icons/instagram-peruano.svg" alt="instagram"></a></li>
         <li><a href="https://www.youtube.com/@AccionPopularPE" title="youtube de accion popular"><img src="icons/youtube-peruano.svg" alt="youtube"></a></li>
-        <li class="correo-accion-popular"><a href="" title="correo de accion popular"><img src="icons/correo-peruano.svg" alt="correo electronico">info&#64;accionpopular.com.pe</a></li>
+        <li class="correo-accion-popular"><a href="mailto:info@accionpopular.com.pe" title="correo de accion popular"><img src="icons/correo-peruano.svg" alt="correo electronico">info&#64;accionpopular.com.pe</a></li>
       </ul>
       <ul class="sitemap" id="sitemap-accion-popular">
         <li><a class="inicio" href="/" title="Inicio del partido">Inicio</a></li>

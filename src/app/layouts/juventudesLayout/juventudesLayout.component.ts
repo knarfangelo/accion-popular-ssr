@@ -12,11 +12,8 @@ import { FooterComponent } from "../footer/footer.component";
     FooterComponent
 ],
   template: `
-
-<header>
-    <app-navegacion>
-    <li class="lista"><a class="icon-a" href=""><img class="icon-portada" src="/inicio/portada.svg" alt=""></a></li>
-    </app-navegacion>
+  <app-navegacion></app-navegacion>
+  <header>  
       <main>
         <h1>Juventudes de Acción Popular</h1>
         <h4>El Futuro es Hoy</h4>

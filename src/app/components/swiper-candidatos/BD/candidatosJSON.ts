@@ -7,7 +7,7 @@ export const candidatosJSON:ICandidato[] = [
         nombre: "Julio Abraham",
         apellido: "Chávez Chiong",
         cargo: "Presidente",
-        descripcion: "Nacido en Callo el 22 de julio de 1981 es un político y abogado peruano.",
+        descripcion: "Nacido en Callao el 22 de julio de 1981 es un político y abogado peruano.",
         foto: "/politicos/julio-abraham-chavez-chiong.png",
         propuestas: [],
         descripcion2: "Fue el alcalde distrital de San Martín de Porres para el periodo 2019-2022."
