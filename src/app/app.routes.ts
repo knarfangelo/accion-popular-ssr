@@ -11,6 +11,8 @@ import { BancadaLayoutComponent } from './layouts/bancadaLayout/bancadaLayout.co
 import { CursosLayoutComponent } from './layouts/cursosLayout/cursosLayout.component';
 import { ActualidadComponent } from './layouts/actualidad/actualidad.component';
 import { ComiteEjecutivoNacionalComponent } from './layouts/comite-ejecutivo-nacional/comite-ejecutivo-nacional.component';
+import { ComitePoliticoComponent } from './layouts/comite-politico/comite-politico.component';
+import { ComEjeDepMetroComponent } from './layouts/com-eje-dep-metro/com-eje-dep-metro.component';
 
 export const routes: Routes = [
     { path: '', component:HomeLayoutComponent},
@@ -26,4 +28,6 @@ export const routes: Routes = [
     { path: 'cursos', component:CursosLayoutComponent},
     { path: 'noticias-eventos', component:ActualidadComponent},
     { path: 'comite-ejecutivo-nacional', component:ComiteEjecutivoNacionalComponent},
+    { path: 'comite-politico', component:ComitePoliticoComponent},
+    { path: 'comites-ejecutivos-departamentales-metropolitano', component:ComEjeDepMetroComponent},
 ];
