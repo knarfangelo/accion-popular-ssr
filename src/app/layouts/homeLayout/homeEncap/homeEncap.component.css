@@ -11,3 +11,15 @@ swiper-container::part(wrapper) {
   -o-transition-timing-function:linear;
   transition-timing-function:linear; 
 }
+.encap-responsivo{
+  display: none;
+  width: 100%;
+}
+@media (width < 900px) {
+  .banner-encap-peruano{
+    display: none;
+  }
+  .encap-responsivo{
+    display: block;
+  }
+}

@@ -14,12 +14,15 @@ import { SwiperOptions } from 'swiper/types';
 <a href="/encap">
     <swiper-container init=false class="swiper-encap">
       <swiper-slide>
+        <img class="encap-responsivo" src="encap/encap-responsive.png" alt="Logo del Encap">
         <img class="banner-encap-peruano" src="banners/encap-fuerza-popular.png" alt="encap-accion-popular">
       </swiper-slide>
       <swiper-slide>
+      <img class="encap-responsivo" src="encap/encap-responsive.png" alt="Logo del Encap">
         <img class="banner-encap-peruano" src="banners/encap-fuerza-popular.png" alt="encap-ap-2">
       </swiper-slide>
       <swiper-slide>
+      <img class="encap-responsivo" src="encap/encap-responsive.png" alt="Logo del Encap">
         <img class="banner-encap-peruano" src="banners/encap-fuerza-popular.png" alt="encap-ap-3">
       </swiper-slide>
     </swiper-container></a>
