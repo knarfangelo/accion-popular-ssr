@@ -1,5 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Inject, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavegacionComponent } from "../../layouts/navegacion/navegacion.component";
 import { FooterComponent } from "../../layouts/footer/footer.component";
 import { HttpClient } from '@angular/common/http';
@@ -9,108 +10,152 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [
     CommonModule,
+    ReactiveFormsModule, // Importar el módulo de formularios reactivos
     NavegacionComponent,
     FooterComponent
-],
+  ],
   template: `
-    <app-navegacion>
-    </app-navegacion>
-  <header>
-    
-    <form class="formulario" action="">
-      <h1>Bienvenido</h1>
-      <p>Afíliate completando este formulario para ser parte de nuestro gran partido, y construyamos juntos el país que merecemos.</p>
-      <label for="" class="nombres"><span>Nombres</span>
-        <input type="text" placeholder="Tus nombres">
-      </label>
-      <label for="" class="apellidos"><span>Apellidos</span>
-        <input type="text" placeholder="Tus apellidos">
-      </label>
-      <label for=""><span>Correo electronico</span>
-        <input type="email" placeholder="ejemplo@gmail.com">
-        <img src="icons/email.svg" alt="">
-      </label>
-      <label for=""><span>DNI</span>
-        <input type="number" placeholder="78896610">
-        <img src="icons/dni.svg" alt="">
-      </label>
-      <label for="fecha"><span>Fecha de Nacimiento</span>
-        <input type="date" id="fecha" placeholder="DD/MM/AAAA">
-      </label>
-      <div class="container">
-      <h3>Lugar de nacimiento </h3><div class="linea"></div></div>
+    <app-navegacion></app-navegacion>
+    <header>
+    <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()" class="formulario">
+  <h1>Bienvenido</h1>
+  <p>Afíliate completando este formulario para ser parte de nuestro gran partido, y construyamos juntos el país que merecemos.</p>
 
-      <label for="departamentoNacimiento"><span>Departamento</span>
-    <select id="departamentoNacimiento" class="direccion" (change)="onDepartamentoNacimientoChange($event)">
+  <label for="nombres" class="nombres"><span>Nombres</span>
+    <input formControlName="nombres" id="nombres" type="text" placeholder="Tus nombres" required>
+    <div *ngIf="formulario.get('nombres')?.invalid && formulario.get('nombres')?.touched" class="error-message">
+      El campo nombres es obligatorio.
+    </div>
+  </label>
+
+  <label for="apellidos" class="apellidos"><span>Apellidos</span>
+    <input formControlName="apellidos" id="apellidos" type="text" placeholder="Tus apellidos" required>
+    <div *ngIf="formulario.get('apellidos')?.invalid && formulario.get('apellidos')?.touched" class="error-message">
+      El campo apellidos es obligatorio.
+    </div>
+  </label>
+
+  <label for="correo"><span>Correo electronico</span>
+    <input formControlName="correo" id="correo" type="email" placeholder="ejemplo@gmail.com" required>
+    <div *ngIf="formulario.get('correo')?.invalid && formulario.get('correo')?.touched" class="error-message">
+      Debes ingresar un correo electrónico válido.
+    </div>
+  </label>
+
+  <label for="dni"><span>DNI</span>
+    <input formControlName="dni" id="dni" type="number" placeholder="78896610" required>
+    <div *ngIf="formulario.get('dni')?.invalid && formulario.get('dni')?.touched" class="error-message">
+      Debes ingresar un DNI válido.
+    </div>
+  </label>
+
+  <label for="fechaNacimiento"><span>Fecha de Nacimiento</span>
+    <input formControlName="fechaNacimiento" id="fechaNacimiento" type="date" required>
+    <div *ngIf="formulario.get('fechaNacimiento')?.invalid && formulario.get('fechaNacimiento')?.touched" class="error-message">
+      Debes seleccionar una fecha de nacimiento.
+    </div>
+  </label>
+
+  <div class="container">
+    <h3>Lugar de nacimiento</h3>
+    <div class="linea"></div>
+  </div>
+
+  <label for="departamentoNacimiento"><span>Departamento</span>
+    <select formControlName="departamentoNacimiento" id="departamentoNacimiento" class="direccion" (change)="onDepartamentoNacimientoChange($event)">
       <option value="">Selecciona departamento</option>
       <option *ngFor="let dep of departamentosNacimiento" [value]="dep">{{dep}}</option>
     </select>
+    <div *ngIf="formulario.get('departamentoNacimiento')?.invalid && formulario.get('departamentoNacimiento')?.touched" class="error-message">
+      Debes seleccionar un departamento de nacimiento.
+    </div>
     <img class="map" src="icons/map.svg" alt="">
   </label>
 
   <label for="provinciaNacimiento"><span>Provincia</span>
-    <select id="provinciaNacimiento" class="direccion" (change)="onProvinciaNacimientoChange($event)">
+    <select formControlName="provinciaNacimiento" id="provinciaNacimiento" class="direccion" (change)="onProvinciaNacimientoChange($event)">
       <option value="">Selecciona provincia</option>
       <option *ngFor="let prov of provinciasNacimiento" [value]="prov">{{prov}}</option>
     </select>
+    <div *ngIf="formulario.get('provinciaNacimiento')?.invalid && formulario.get('provinciaNacimiento')?.touched" class="error-message">
+      Debes seleccionar una provincia de nacimiento.
+    </div>
     <img class="map" src="icons/map.svg" alt="">
   </label>
 
   <label for="distritoNacimiento"><span>Distrito</span>
-    <select id="distritoNacimiento" class="direccion">
+    <select formControlName="distritoNacimiento" id="distritoNacimiento" class="direccion">
       <option value="">Selecciona distrito</option>
       <option *ngFor="let dist of distritosNacimiento" [value]="dist">{{dist}}</option>
     </select>
+    <div *ngIf="formulario.get('distritoNacimiento')?.invalid && formulario.get('distritoNacimiento')?.touched" class="error-message">
+      Debes seleccionar un distrito de nacimiento.
+    </div>
     <img class="map" src="icons/map.svg" alt="">
   </label>
 
   <div class="container">
-    <h3>Domicilio actual  </h3><div class="linea"></div>
+    <h3>Domicilio actual</h3>
+    <div class="linea"></div>
   </div>
 
   <label for="departamentoDomicilio"><span>Departamento</span>
-    <select id="departamentoDomicilio" class="direccion" (change)="onDepartamentoDomicilioChange($event)">
+    <select formControlName="departamentoDomicilio" id="departamentoDomicilio" class="direccion" (change)="onDepartamentoDomicilioChange($event)">
       <option value="">Selecciona departamento</option>
       <option *ngFor="let dep of departamentosDomicilio" [value]="dep">{{dep}}</option>
     </select>
+    <div *ngIf="formulario.get('departamentoDomicilio')?.invalid && formulario.get('departamentoDomicilio')?.touched" class="error-message">
+      Debes seleccionar un departamento de domicilio.
+    </div>
     <img class="map" src="icons/map.svg" alt="">
   </label>
 
   <label for="provinciaDomicilio"><span>Provincia</span>
-    <select id="provinciaDomicilio" class="direccion" (change)="onProvinciaDomicilioChange($event)">
+    <select formControlName="provinciaDomicilio" id="provinciaDomicilio" class="direccion" (change)="onProvinciaDomicilioChange($event)">
       <option value="">Selecciona provincia</option>
       <option *ngFor="let prov of provinciasDomicilio" [value]="prov">{{prov}}</option>
     </select>
-    <img class="map" src="icons/map.svg" alt="">
+    <div *ngIf="formulario.get('provinciaDomicilio')?.invalid && formulario.get('provinciaDomicilio')?.touched" class="error-message">
+      Debes seleccionar una provincia de domicilio.
+    </div>
   </label>
 
   <label for="distritoDomicilio"><span>Distrito</span>
-    <select id="distritoDomicilio" class="direccion">
+    <select formControlName="distritoDomicilio" id="distritoDomicilio" class="direccion">
       <option value="">Selecciona distrito</option>
       <option *ngFor="let dist of distritosDomicilio" [value]="dist">{{dist}}</option>
     </select>
-    <img class="map" src="icons/map.svg" alt="">
+    <div *ngIf="formulario.get('distritoDomicilio')?.invalid && formulario.get('distritoDomicilio')?.touched" class="error-message">
+      Debes seleccionar un distrito de domicilio.
+    </div>
   </label>
-      <label class="checkbox" for=""><input type="checkbox">
-        <p>Al continuar, confirmo que he leído y acepto los Términos y Condiciones</p>
-      </label>
-      <input class="submit" type="submit" value="Enviar">
-    </form> 
-  </header>
-  <app-footer></app-footer>
-  
+
+  <label class="checkbox terminos-condiciones-label" for="">
+    <div class="terminos-condiciones">
+    <input formControlName="terminos" type="checkbox" required>
+    <p>Al continuar, confirmo que he leído y acepto los Términos y Condiciones</p></div>
+    <div *ngIf="formulario.get('terminos')?.invalid && formulario.get('terminos')?.touched" class="error-message terminos-condiciones-error">
+      Debes aceptar los términos y condiciones.
+    </div>
+  </label>
+
+  <input class="submit" type="submit" value="Enviar">
+</form>
+
+    </header>
+    <app-footer></app-footer>
   `,
-  styleUrl: './formulario.component.css',
+  styleUrls: ['./formulario.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormularioComponent {
+export class FormularioComponent implements OnInit {
+  formulario: FormGroup;
 
   provincias: any[] = [];
   departamentos: any[] = [];
   distritos: any[] = [];
   provinciasOriginales: any[] = [];
-  departamentosOriginales: any[] = [];
-  
+
   // Variables para lugar de nacimiento
   departamentosNacimiento: any[] = [];
   provinciasNacimiento: any[] = [];
@@ -125,8 +170,22 @@ export class FormularioComponent {
   selectedDepartamentoDomicilio: string = '';
   selectedProvinciaDomicilio: string = '';
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient) {}
-
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient, private fb: FormBuilder) {
+    this.formulario = this.fb.group({
+      nombres: ['', Validators.required],
+      apellidos: ['', Validators.required],
+      correo: ['', [Validators.required, Validators.email]],
+      dni: ['', [Validators.required, Validators.pattern('^[0-9]*$')]], // Solo números
+      fechaNacimiento: ['', Validators.required],
+      departamentoNacimiento: ['', Validators.required],
+      provinciaNacimiento: ['', Validators.required],
+      distritoNacimiento: ['', Validators.required],
+      departamentoDomicilio: ['', Validators.required],
+      provinciaDomicilio: ['', Validators.required],
+      distritoDomicilio: ['', Validators.required],
+      terminos: [false, Validators.requiredTrue], // Checkbox
+    });
+  }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -144,9 +203,9 @@ export class FormularioComponent {
   }
 
   decodeHtmlEntities(html: string): string {
-      const txt = document.createElement('textarea');
-      txt.innerHTML = html;
-      return txt.value;    
+    const txt = document.createElement('textarea');
+    txt.innerHTML = html;
+    return txt.value;    
   }
 
   updateDepartamentos() {
@@ -162,10 +221,12 @@ export class FormularioComponent {
     const provinciasFiltradas = this.provinciasOriginales
       .filter(p => p.Departamento === this.selectedDepartamentoNacimiento)
       .map(p => p.Provincia);
-      
+    
     this.provinciasNacimiento = [...new Set(provinciasFiltradas)];
     this.selectedProvinciaNacimiento = '';
     this.distritosNacimiento = [];
+    this.formulario.get('provinciaNacimiento')?.setValue('');
+    this.formulario.get('distritoNacimiento')?.setValue('');
   }
 
   onProvinciaNacimientoChange(event: Event): void {
@@ -177,6 +238,7 @@ export class FormularioComponent {
       .map(p => p.Distrito);
     
     this.distritosNacimiento = [...new Set(distritosFiltrados)];
+    this.formulario.get('distritoNacimiento')?.setValue('');
   }
 
   onDepartamentoDomicilioChange(event: Event): void {
@@ -190,6 +252,8 @@ export class FormularioComponent {
     this.provinciasDomicilio = [...new Set(provinciasFiltradas)];
     this.selectedProvinciaDomicilio = '';
     this.distritosDomicilio = [];
+    this.formulario.get('provinciaDomicilio')?.setValue('');
+    this.formulario.get('distritoDomicilio')?.setValue('');
   }
 
   onProvinciaDomicilioChange(event: Event): void {
@@ -201,6 +265,26 @@ export class FormularioComponent {
       .map(p => p.Distrito);
     
     this.distritosDomicilio = [...new Set(distritosFiltrados)];
+    this.formulario.get('distritoDomicilio')?.setValue('');
   }
 
+  enviarFormulario() {
+    // Marcar todos los campos como tocados para mostrar mensajes de error
+    this.formulario.markAllAsTouched();
+  
+    if (this.formulario.valid) {
+      const datosFormulario = this.formulario.value;
+      console.log("Datos del formulario:", JSON.stringify(datosFormulario, null, 2));
+      // Aquí puedes hacer la petición HTTP para enviar los datos a tu API
+      this.http.post('/api/api.php', datosFormulario).subscribe(response => {
+        console.log('Formulario enviado con éxito:', response);
+        // Puedes agregar lógica adicional aquí (por ejemplo, redirigir al usuario)
+      }, error => {
+        console.error('Error al enviar el formulario:', error);
+      });
+    } else {
+      console.error('Formulario no válido');
+      // Aquí puedes mostrar un mensaje adicional si lo deseas
+    }
+  }
 }

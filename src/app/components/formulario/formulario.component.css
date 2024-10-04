@@ -22,9 +22,11 @@ input{
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 10px;
+  min-height: 44px;
 }
 select{
   display: flex;
+  min-height: 44px;
   padding: 0;
   margin: 0;
   border: 0;
@@ -166,6 +168,29 @@ label .map{
   width: 200px;
   margin-right: 15px;
   height: 100%;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: auto; /* Cambiado a auto para permitir expansión */
+}
+
+.error-message {
+  color: red; /* Color del texto del mensaje de error */
+  font-size: 12px; /* Tamaño de la fuente del mensaje de error */
+  margin-top: 5px; /* Espacio entre el campo y el mensaje de error */
+  margin-bottom: 10px; /* Espacio adicional debajo del mensaje de error */
+}
+.terminos-condiciones-label{
+  display: flex;
+  flex-direction: column;
+}
+.terminos-condiciones{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
 @media (width < 800px) {

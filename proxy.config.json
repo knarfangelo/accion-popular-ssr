@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "https://accionpopular.com.pe",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
+  
