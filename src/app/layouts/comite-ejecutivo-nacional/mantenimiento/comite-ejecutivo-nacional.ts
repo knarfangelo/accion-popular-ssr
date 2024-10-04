@@ -26,7 +26,7 @@ export const comiteEjecutivoNacionalData:IComiteEjecutivoNacional[] = [
     },
     {
         id: 4,
-        imagen: 'comite-ejecutivo-nacional/hombre-peruano.png',
+        imagen: 'comite-ejecutivo-nacional/oyola-rodriguez-juan-carlos.png',
         nombre: 'OYOLA RODRÍGUEZ, Juan Carlos',
         cargo: 'VICE SECRETARIA GENERAL NACIONAL DE CAPACITACIÓN Y BIENESTAR'
     },

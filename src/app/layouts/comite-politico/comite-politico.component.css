@@ -79,11 +79,6 @@ main{
 .descripcion {
   padding: 5px;
 }
-@media (width < 1200px) {
-  main{
-  grid-template-columns: minmax(0, 320px) minmax(0, 320px);
-  }
-}
 
 @media (width < 800px) {
   .banner{
@@ -93,6 +88,9 @@ main{
   }
   .banner h1 {
     font-size: 30px;
+  }
+  .cards:nth-child(2){
+    grid-row: 1/2;
   }
   main{
     grid-template-columns: minmax(0, 320px);
