@@ -5,17 +5,18 @@ export interface IComitePolitico {
     cargo:string,   
 }
 
-export const comitePoliticoData:IComitePolitico[] = [
-    {
-        imagen: 'comite-politico/hombre-peruano.png',
-        nombre: 'CHÁVEZ CHIONG, Julio Abraham',
-        cargo: 'EX SECRETARIO GENERAL NACIONAL',
-    },
+export const comitePoliticoData:IComitePolitico[] = [ 
     {
         imagen: 'comite-politico/hombre-peruano.png',
         nombre: 'DEL ÁGUILA MOROTE, Ricardo Edmundo',
         cargo: 'EX SECRETARIO GENERAL NACIONAL',
     },
+    {
+        imagen: 'comite-politico/chavez-abraham.png',
+        nombre: 'CHÁVEZ CHIONG, Julio Abraham',
+        cargo: 'EX SECRETARIO GENERAL NACIONAL',
+    },
+   
     {
         imagen: 'comite-politico/hombre-peruano.png',
         nombre: 'GÁLVEZ DE LA PUENTE, Luis Enrique Felipe Miguel',
