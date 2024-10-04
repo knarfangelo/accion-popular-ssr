@@ -144,12 +144,9 @@ export class FormularioComponent {
   }
 
   decodeHtmlEntities(html: string): string {
-    if (isPlatformBrowser(this.platformId)) {
       const txt = document.createElement('textarea');
       txt.innerHTML = html;
-      return txt.value;
-    }
-    return html; // En el servidor no haces nada con document, solo devuelves el valor original
+      return txt.value;    
   }
 
   updateDepartamentos() {
