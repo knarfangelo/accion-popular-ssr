@@ -44,7 +44,7 @@ export const comiteEjecutivoNacionalData:IComiteEjecutivoNacional[] = [
     },
     {
         id: 7,
-        imagen: 'comite-ejecutivo-nacional/mujer-peruana.png',
+        imagen: 'comite-ejecutivo-nacional/cardoso-serra-maria-luisa.png',
         nombre: 'CARDOSO SERRA, María Luisa',
         cargo: 'SECRETARIO NACIONAL DE PERSONEROS Y ASUNTOS ELECTORALES'
     },
