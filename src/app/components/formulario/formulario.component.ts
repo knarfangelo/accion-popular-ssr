@@ -274,17 +274,23 @@ export class FormularioComponent implements OnInit {
   
     if (this.formulario.valid) {
       const datosFormulario = this.formulario.value;
-      console.log("Datos del formulario:", JSON.stringify(datosFormulario, null, 2));
-      // Aquí puedes hacer la petición HTTP para enviar los datos a tu API
-      this.http.post('/api/api.php', datosFormulario).subscribe(response => {
-        console.log('Formulario enviado con éxito:', response);
-        // Puedes agregar lógica adicional aquí (por ejemplo, redirigir al usuario)
-      }, error => {
-        console.error('Error al enviar el formulario:', error);
-      });
+  
+      // Codificar credenciales en base64
+      const credentials = btoa('uv60tv11rhvxe:frankangelo75967915');
+      const headers = {
+        Authorization: `Basic ${credentials}`,
+        'Content-Type': 'application/json',
+      };
+  
+      // Aquí haces la petición HTTP con el encabezado de autorización
+      this.http.post('https://accionpopular.com.pe/api/api.php', datosFormulario, { headers })
+        .subscribe(response => {
+          console.log('Formulario enviado con éxito:', response);
+        }, error => {
+          console.error('Error al enviar el formulario:', error);
+        });
     } else {
       console.error('Formulario no válido');
-      // Aquí puedes mostrar un mensaje adicional si lo deseas
     }
-  }
+  }  
 }

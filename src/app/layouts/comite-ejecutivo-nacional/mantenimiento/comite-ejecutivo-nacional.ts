@@ -38,7 +38,7 @@ export const comiteEjecutivoNacionalData:IComiteEjecutivoNacional[] = [
     },
     {
         id: 6,
-        imagen: 'comite-ejecutivo-nacional/mujer-peruana.png',
+        imagen: 'comite-ejecutivo-nacional/vasquez-hurtado-marina-rosalva.png',
         nombre: 'VÁSQUEZ HURTADO, Marina Rosalva',
         cargo: 'SECRETARIO NACIONAL DE GOBIERNOS LOCALES Y REGIONALES'
     },
@@ -68,19 +68,19 @@ export const comiteEjecutivoNacionalData:IComiteEjecutivoNacional[] = [
     },
     {
         id: 11,
-        imagen: 'comite-ejecutivo-nacional/mujer-peruana.png',
+        imagen: 'comite-ejecutivo-nacional/guevara-melendez-monica.png',
         nombre: 'GUEVARA MELÉNDEZ, Mónica',
         cargo: 'SECRETARIA NACIONAL DE ESTADISTICA'
     },
     {
         id: 12,
-        imagen: 'comite-ejecutivo-nacional/mujer-peruana.png',
+        imagen: 'comite-ejecutivo-nacional/condo-salas-delia.png',
         nombre: 'CONDO SALAS, Delia',
         cargo: 'SECRETARIO NACIONAL DE ASUNTOS LABORALES'
     },
     {
         id: 13,
-        imagen: 'comite-ejecutivo-nacional/hombre-peruano.png',
+        imagen: 'comite-ejecutivo-nacional/salas-astorga-luis-lizandro.png',
         nombre: 'SALAS ASTORGA, Luis Lizandro',
         cargo: 'SECRETARIO NACIONAL DE DISCIPLINA'
     },
@@ -92,7 +92,7 @@ export const comiteEjecutivoNacionalData:IComiteEjecutivoNacional[] = [
     },
     {
         id: 15,
-        imagen: 'comite-ejecutivo-nacional/mujer-peruana.png',
+        imagen: 'comite-ejecutivo-nacional/fabian-diaz-yessy-nelida.png',
         nombre: 'FABIÁN DÍAZ, Yessy Nélida',
         cargo: 'SECRETARIA NACIONAL DE COOPERACIÓN POPULAR'
     },
@@ -104,26 +104,27 @@ export const comiteEjecutivoNacionalData:IComiteEjecutivoNacional[] = [
     },
     {
         id: 17,
-        imagen: 'comite-ejecutivo-nacional/hombre-peruano.png',
+        imagen: 'comite-ejecutivo-nacional/mayta-maggy-albino-rafael.png',
         nombre: 'MAYTA MAGGY, Albino Rafael',
         cargo: 'SECRETARIA NACIONAL DE IDEOLOGIA Y CULTURA'
     },
     {
         id: 18,
-        imagen: 'comite-ejecutivo-nacional/hombre-peruano.png',
+        imagen: 'comite-ejecutivo-nacional/ascencio-orellana-renzo-david.png',
         nombre: 'ASCENCIO ORELLANA, Renzo David',
         cargo: 'SECRETARIO NACIONAL DE JUVENTUDES'
     },
     {
         id: 19,
-        imagen: 'comite-ejecutivo-nacional/hombre-peruano.png',
+        imagen: 'comite-ejecutivo-nacional/meza-garcia-edgar-ulises.png',
         nombre: 'MEZA GARCÍA, Edgar Ulises',
         cargo: 'SECRETARIO NACIONAL DE DERECHOS HUMANOS Y DEFENSA DEL PATRIMONIO NACIONAL'
     },
     {
         id: 20,
-        imagen: 'comite-ejecutivo-nacional/hombre-peruano.png',
+        imagen: 'comite-ejecutivo-nacional/pizarro-garcia-hernando.png',
         nombre: 'PIZARRO GARCÍA, Hernando',
         cargo: 'SECRETARIO NACIONAL DE COORDINACIÓN'
     }
 ];
+
