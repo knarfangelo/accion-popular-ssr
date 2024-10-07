@@ -21,6 +21,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
       <ul class="sitemap" id="sitemap-accion-popular">
         <li><a class="inicio" href="/" title="Inicio del partido">Inicio</a></li>
         <li><a href="/quienes-somos" title="Conócenos - Partido">Nosotros</a></li>
+
         <li class="liderazgo-lista">
           <a class="liderazgo" (click)="desplegarLiderazgo($event)" title="Liderazgo">Liderazgo</a>
           <ul class="liderazgo-desplegable" [@slideInOut]="liderazgoDesplegado ? 'open' : 'closed'">
@@ -30,6 +31,20 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
             <li><a href="bancada"><span>•</span> Bancada</a></li>
           </ul>
         </li>
+
+        <li class="organos-partidarios-lista">
+          <a class="organos-partidarios" (click)="desplegarOrganosPartidarios($event)" title="Órganos Partidarios">Órganos Partidarios</a>
+          <ul class="organos-partidarios-desplegable" [@slideInOut]="organosPartidariosDesplegado ? 'open' : 'closed'">
+            <li><a class="no-habilitado"><span>•</span> Presidencia</a></li>
+            <li><a class="no-habilitado"><span>•</span> Comité Nacional Electoral</a></li>
+            <li><a href="oficina-nacional-registro-partidario"><span>•</span> Oficina Nacional de Registro Partidario</a></li>
+            <li><a class="no-habilitado"><span>•</span> Tribunal de Disciplina</a></li>
+            <li><a class="no-habilitado"><span>•</span> Defensor del Afiliado</a></li>
+            <li><a class="no-habilitado"><span>•</span> Congreso Nacional</a></li>
+            <li><a class="no-habilitado"><span>•</span> Plenario Nacional</a></li>
+          </ul>
+        </li>
+
         <li><a href="/capacitacion" title="Capacitación para nuevos miembros para el partido">Capacitación</a></li>
         <li><a href="/documentos" title="Documentos del partido político peruano acción popular">Documentos</a></li>
         <li><a href="/juventudes-accion-popular" title="Juventudes de acción popular">Juventudes</a></li>
@@ -59,20 +74,28 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   ]
 })
 export class NavEscritorioComponent {
+
   liderazgoDesplegado = false;
+  organosPartidariosDesplegado = false; // Nueva propiedad para el nuevo menú
 
   constructor(private eRef: ElementRef) { }
 
   desplegarLiderazgo(event: Event) {
-    event.stopPropagation(); // Evita que el clic en el propio menú cierre el desplegable
+    event.stopPropagation();
     this.liderazgoDesplegado = !this.liderazgoDesplegado;
   }
 
+  desplegarOrganosPartidarios(event: Event) {
+    event.stopPropagation(); // Evita que el clic en el propio menú cierre el desplegable
+    this.organosPartidariosDesplegado = !this.organosPartidariosDesplegado; // Alternar visibilidad del nuevo menú
+  }
+
   @HostListener('document:click', ['$event'])
-  cerrarLiderazgo(event: Event) {
-    // Verifica si el clic ocurrió fuera del menú de liderazgo
+  cerrarMenus(event: Event) {
     if (!this.eRef.nativeElement.contains(event.target)) {
       this.liderazgoDesplegado = false;
+      this.organosPartidariosDesplegado = false; // Cerrar el nuevo menú al hacer clic fuera
     }
   }
+
 }

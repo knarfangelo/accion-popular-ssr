@@ -1,11 +1,14 @@
 header{
-  display: flex;
   flex-direction: column;
+  height: auto;
   background: linear-gradient(180deg, #FFF 0%, #C9C5C5 92.3%);
 }
 main{
+  display: grid;
+  gap: 36px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 0 100px;
-  margin-bottom: 100px;
+  padding-bottom: 100px;
 }
 .titulo {
   text-align: center;
@@ -17,12 +20,9 @@ main{
   line-height: normal;
   margin: 80px;
 }
-swiper-container::part(bullet-active) {
-  background-color: red;
-  color: red;
-}
 .container-noticias img{
   width: 100%;
+  height: auto;
 }
 
 .container-noticias {
@@ -54,11 +54,8 @@ swiper-container::part(bullet-active) {
   text-overflow: ellipsis;
 }
 
-@media (width < 800px){
-  main {
-    margin: 20px;
-  }
-  .titulo{
-    margin: 50px 20px;
+@media (width < 1200px) {
+  main{
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

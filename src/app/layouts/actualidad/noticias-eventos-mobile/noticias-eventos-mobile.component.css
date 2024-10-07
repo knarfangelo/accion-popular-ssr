@@ -1,11 +1,11 @@
 header{
-  display: flex;
   flex-direction: column;
+  height: auto;
   background: linear-gradient(180deg, #FFF 0%, #C9C5C5 92.3%);
 }
 main{
   margin: 0 100px;
-  margin-bottom: 100px;
+  padding-bottom: 100px;
 }
 .titulo {
   text-align: center;
@@ -17,12 +17,9 @@ main{
   line-height: normal;
   margin: 80px;
 }
-swiper-container::part(bullet-active) {
-  background-color: red;
-  color: red;
-}
 .container-noticias img{
   width: 100%;
+  height: auto;
 }
 
 .container-noticias {
@@ -53,12 +50,42 @@ swiper-container::part(bullet-active) {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.buttons{
+  display: none;
+}
+
 
 @media (width < 800px){
   main {
     margin: 20px;
+    margin-bottom: 0;
   }
   .titulo{
     margin: 50px 20px;
+  }
+  .swiper-button-next{
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 50px;
+    border: 0;
+    color: #fff;
+    background-color: #E31F27;
+  }
+  .swiper-button-prev{
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 50px;
+    border: 0;
+    color: #fff;
+    background-color: #E31F27;
+  }
+  .buttons{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
   }
 }

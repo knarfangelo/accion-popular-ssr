@@ -13,6 +13,7 @@ import { ActualidadComponent } from './layouts/actualidad/actualidad.component';
 import { ComiteEjecutivoNacionalComponent } from './layouts/comite-ejecutivo-nacional/comite-ejecutivo-nacional.component';
 import { ComitePoliticoComponent } from './layouts/comite-politico/comite-politico.component';
 import { ComEjeDepMetroComponent } from './layouts/com-eje-dep-metro/com-eje-dep-metro.component';
+import { OficinaNacionaRegistroPartidarioComponent } from './layouts/organos-partidarios-layout/oficina-naciona-registro-partidario/oficina-naciona-registro-partidario.component';
 
 export const routes: Routes = [
     { path: '', component:HomeLayoutComponent},
@@ -30,4 +31,5 @@ export const routes: Routes = [
     { path: 'comite-ejecutivo-nacional', component:ComiteEjecutivoNacionalComponent},
     { path: 'comite-politico', component:ComitePoliticoComponent},
     { path: 'comites-ejecutivos-departamentales-metropolitano', component:ComEjeDepMetroComponent},
+    { path: 'oficina-nacional-registro-partidario', component:OficinaNacionaRegistroPartidarioComponent},
 ];

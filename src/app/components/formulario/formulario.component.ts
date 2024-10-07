@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { NavegacionComponent } from "../../layouts/navegacion/navegacion.component";
 import { FooterComponent } from "../../layouts/footer/footer.component";
 import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../../Api.service';
 
 @Component({
   selector: 'app-formulario',
@@ -16,7 +17,9 @@ import { HttpClient } from '@angular/common/http';
   ],
   template: `
     <app-navegacion></app-navegacion>
+    
     <header>
+      @if( formularioReaccion ) {
     <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()" class="formulario">
   <h1>Bienvenido</h1>
   <p>Afíliate completando este formulario para ser parte de nuestro gran partido, y construyamos juntos el país que merecemos.</p>
@@ -141,8 +144,19 @@ import { HttpClient } from '@angular/common/http';
 
   <input class="submit" type="submit" value="Enviar">
 </form>
-
+} @else {
+      <section class="reaccion-registro">
+      <div class="contenido">
+      <h1 class="responsive">
+      GRACIAS POR UNIRTE <br> 
+      A ACCIÓN POPULAR
+      </h1>
+      <img class="pala" src="icons/pala-accion-popular.svg" alt="pala sin fondo de accion popular"></div>
+      <a href="" class="regresar-inicio">REGRESAR AL INICIO</a>
+      </section>
+    }
     </header>
+    
     <app-footer></app-footer>
   `,
   styleUrls: ['./formulario.component.css'],
@@ -150,6 +164,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FormularioComponent implements OnInit {
   formulario: FormGroup;
+
+  formularioReaccion = true;
 
   provincias: any[] = [];
   departamentos: any[] = [];
@@ -170,7 +186,7 @@ export class FormularioComponent implements OnInit {
   selectedDepartamentoDomicilio: string = '';
   selectedProvinciaDomicilio: string = '';
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient, private fb: FormBuilder) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient, private fb: FormBuilder,  private apiService: ApiService) {
     this.formulario = this.fb.group({
       nombres: ['', Validators.required],
       apellidos: ['', Validators.required],
@@ -273,24 +289,24 @@ export class FormularioComponent implements OnInit {
     this.formulario.markAllAsTouched();
   
     if (this.formulario.valid) {
+      
+      this.formularioReaccion = false;
       const datosFormulario = this.formulario.value;
   
-      // Codificar credenciales en base64
-      const credentials = btoa('uv60tv11rhvxe:frankangelo75967915');
-      const headers = {
-        Authorization: `Basic ${credentials}`,
-        'Content-Type': 'application/json',
-      };
-  
-      // Aquí haces la petición HTTP con el encabezado de autorización
-      this.http.post('https://accionpopular.com.pe/api/api.php', datosFormulario, { headers })
-        .subscribe(response => {
+      // Llamar al servicio para enviar datos
+      this.apiService.enviarDatos(datosFormulario).subscribe(
+        response => {
           console.log('Formulario enviado con éxito:', response);
-        }, error => {
+        },
+        error => {
           console.error('Error al enviar el formulario:', error);
-        });
+        }
+      );
     } else {
       console.error('Formulario no válido');
     }
-  }  
+  }
+  
+  
+
 }

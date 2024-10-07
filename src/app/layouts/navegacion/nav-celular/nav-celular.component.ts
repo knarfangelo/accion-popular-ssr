@@ -36,6 +36,21 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
             <li class="liderazgo-item"><a class="sub-url" href="bancada"><span>•</span> Bancada</a></li>
           </ul>
         </li>
+
+        <li class="organos-partidarios-lista">
+  <button (click)="toggleOrganosPartidarios()" class="organos-partidarios-btn">Órganos Partidarios</button>
+  <ul class="organos-partidarios-desplegable" [@slideInOut]="organosPartidariosDesplegado ? 'open' : 'closed'">
+    <li><a class="no-habilitado"><span>•</span> Presidencia</a></li>
+    <li><a class="no-habilitado"><span>•</span> Comité Nacional Electoral</a></li>
+    <li><a href="oficina-nacional-registro-partidario"><span>•</span> Oficina Nacional de Registro Partidario</a></li>
+    <li><a class="no-habilitado"><span>•</span> Tribunal de Disciplina</a></li>
+    <li><a class="no-habilitado"><span>•</span> Defensor del Afiliado</a></li>
+    <li><a class="no-habilitado"><span>•</span> Congreso Nacional</a></li>
+    <li><a class="no-habilitado"><span>•</span> Plenario Nacional</a></li>
+  </ul>
+</li>
+
+        
         <li><a href="capacitacion" title="Capacitación para nuevos mienbros para el partido">Capacitación</a></li>
         <li><a href="documentos" title="Documentos del partido político peruano acción popular">Documentos</a></li>
         <li><a href="/juventudes-accion-popular" title="Juventudes de acción popular">Juventudes</a></li>
@@ -85,6 +100,7 @@ export class NavCelularComponent {
 
   sitemapVisible = false;
   liderazgoDesplegado = false;
+  organosPartidariosDesplegado = false; // New state for Órganos Partidarios
 
   toggleSitemap() {
     this.sitemapVisible = !this.sitemapVisible;
@@ -94,4 +110,8 @@ export class NavCelularComponent {
     this.liderazgoDesplegado = !this.liderazgoDesplegado;
   }
 
+  // New method for Órganos Partidarios toggle
+  toggleOrganosPartidarios() {
+    this.organosPartidariosDesplegado = !this.organosPartidariosDesplegado;
+  }
 }
