@@ -19,6 +19,7 @@ header{
 }
 h1{
 color: #DE1A22;
+padding-top: 30px;
 font-family: Montserrat;
 font-size: 47.78px;
 font-weight: 900;
@@ -61,9 +62,6 @@ article .contenido{
   left:0;
   right: 0;
   margin: 50px auto;
-}
-.contenido {
-  font-weight: 600;
 }
 
 @media (width < 900px) {
