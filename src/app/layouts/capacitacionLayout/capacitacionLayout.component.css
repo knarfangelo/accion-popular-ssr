@@ -18,6 +18,7 @@ app-navegacion ul{
 
 h1{
   color: #DE1A22;
+  padding-top: 30px;
 }
 .no-habilitado{
   background-color: gray !important;
@@ -48,12 +49,15 @@ article{
   margin: 0 80px;
   gap: 50px;
 }
-
+ul{
+  font-weight: 400;
+  text-align: justify;
+}
 article .contenido{
   max-width: 600px;
 }
 .contenido p {
-  font-weight: 600;
+  text-align: justify;
 }
 .capacitacion{
   object-fit: contain;
@@ -73,9 +77,6 @@ article .contenido{
   align-items: center;
   justify-content: center;
   margin: 50px 0;
-}
-ul{
-  font-weight: 600;
 }
 @media (width < 900px) {
   .buttons a {

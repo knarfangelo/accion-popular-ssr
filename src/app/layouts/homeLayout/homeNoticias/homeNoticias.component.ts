@@ -34,7 +34,7 @@ import { noticias } from '../../actualidad/mantenimiento/actualidad';
 export class HomeNoticiasComponent {
 
   
-  noticias = noticias; // Assigning the imported noticias array
+  noticias = noticias.slice(0, 4); // Assigning the imported noticias array
 
   swiperElements = signal<SwiperContainer | null>(null);
 

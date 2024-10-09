@@ -24,10 +24,10 @@ import { FooterComponent } from "../footer/footer.component";
         </p>
         <p>Nuestros programas incluyen:</p>
         <ul>
-          <li>Formación Política: Cursos y seminarios para entender la estructura política del país, procesos legislativos y la importancia de la participación democrática.</li>
-          <li>Liderazgo y Gestión Pública: Talleres especializados en liderazgo, toma de decisiones y gestión eficiente para quienes deseen incursionar en cargos públicos.</li>
-          <li>Políticas Públicas: Capacitación en el diseño y evaluación de políticas públicas para generar impacto social y económico.</li>
-          <li>Herramientas Digitales y Comunicación Política: Formación en el uso de tecnologías y plataformas digitales para potenciar la comunicación política y conectar con la ciudadanía.</li>
+          <li><strong>Formación Política:</strong> Cursos y seminarios para entender la estructura política del país, procesos legislativos y la importancia de la participación democrática.</li><br>
+          <li><strong>Liderazgo y Gestión Pública:</strong> Talleres especializados en liderazgo, toma de decisiones y gestión eficiente para quienes deseen incursionar en cargos públicos.</li><br>
+          <li><strong>Políticas Públicas:</strong> Capacitación en el diseño y evaluación de políticas públicas para generar impacto social y económico.</li><br>
+          <li><strong>Herramientas Digitales y Comunicación Política:</strong> Formación en el uso de tecnologías y plataformas digitales para potenciar la comunicación política y conectar con la ciudadanía.</li>
         </ul>
       </section>
       <img class="capacitacion" src="capacitacion/capacitacion.png" alt="capacitacion accion popular">

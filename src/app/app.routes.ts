@@ -32,4 +32,5 @@ export const routes: Routes = [
     { path: 'comite-politico', component:ComitePoliticoComponent},
     { path: 'comites-ejecutivos-departamentales-metropolitano', component:ComEjeDepMetroComponent},
     { path: 'oficina-nacional-registro-partidario', component:OficinaNacionaRegistroPartidarioComponent},
+    { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

@@ -45,6 +45,7 @@ article{
 
 article .contenido{
   max-width: 500px;
+  text-align: justify;
 }
 .juventudes{
   text-decoration: none;

@@ -39,8 +39,14 @@ font-weight: 400;
 line-height: normal;
 max-width: 800px;
 }
-
+iframe {
+  width: 800px;
+  height: 500px;
+}
 @media (width < 900px){
+  iframe {
+    width: 100%;
+  }
   main{
     margin: 15px;
   }

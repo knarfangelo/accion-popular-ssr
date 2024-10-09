@@ -16,7 +16,7 @@ export const comEjeDepMetroData: IComEjeDepMetro[] = [
     {
         id: 2,
         nombre: 'Sanchez Norabuena, Nerio Edison',
-        cargo: 'Secretario de planificación y desarrollo departamento de Ancash',
+        cargo: 'SECRETARIO DE PLANIFICACIÓN Y DESARROLLO DEPARTAMENTO DE ANCASH',
         imagen: 'com-eje-dep-metro/hombre-peruano.png'
     },
     {
@@ -112,7 +112,7 @@ export const comEjeDepMetroData: IComEjeDepMetro[] = [
     {
         id: 18,
         nombre: 'Acero Oliva, Blademir',
-        cargo: 'Secretario DEPARTAMENTAL de planificación Y DESARROLLO DE MOQUEGUA',
+        cargo: 'SECRETARIO DEPARTAMENTAL de PLANIFICACIÓN Y DESARROLLO DE MOQUEGUA',
         imagen: 'com-eje-dep-metro/hombre-peruano.png'
     },
     {
