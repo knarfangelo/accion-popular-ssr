@@ -32,7 +32,7 @@ export const comiteEjecutivoNacionalData:IComiteEjecutivoNacional[] = [
     },
     {
         id: 5,
-        imagen: 'comite-ejecutivo-nacional/mujer-peruana.png',
+        imagen: 'comite-ejecutivo-nacional/OLAYA-SILVA-Clara-Aurora.png',
         nombre: 'OLAYA SILVA, Clara Aurora',
         cargo: 'SECRETARIA NACIONAL DE PLANIFICACIÓN Y DESARROLLO'
     },

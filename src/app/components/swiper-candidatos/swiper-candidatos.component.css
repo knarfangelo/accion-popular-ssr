@@ -61,11 +61,11 @@ border-radius: 10px;
   bottom: 0;
   margin: auto;
   width: 50%;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 .foto{
   position: absolute;
-  width: 206px;
+  width: 60%;
   object-fit: contain;
   object-position: right;
   right: 0;
@@ -90,7 +90,9 @@ border-radius: 10px;
   padding-top: 0;
   gap: 45px; /* Espacio entre los botones */
 }
-
+.juan-jose {
+  width: 55%;
+}
 .button-nav {
   box-sizing: border-box;
   display: flex;
