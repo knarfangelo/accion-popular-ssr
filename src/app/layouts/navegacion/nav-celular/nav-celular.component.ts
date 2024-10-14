@@ -12,7 +12,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       <ul class="redes" id="redes-accion-popular">
         <li><a href="https://www.tiktok.com/@accionpopular.pe" target="_blank" title="Tiktok en movil de acción popular"><img src="icons/tiktok-peruano.svg" alt="tiktok"></a></li>
         <li><a href="https://www.facebook.com/people/Acci%C3%B3n-Popular/61566219825204/" target="_blank" title="facebook en movil de acción popular"><img src="icons/facebook-peruano.svg" alt="facebook"></a></li>
-        <li><a href="https://x.com/accion_popular_" title="twitter en movil de acción popular" target="_blank"><img src="icons/twitter-peruano.svg" alt="twitter"></a></li>
+        <li><a href="https://x.com/AccionPopularOk" title="twitter en movil de acción popular" target="_blank"><img src="icons/twitter-peruano.svg" alt="twitter"></a></li>
         <li><a href="https://www.instagram.com/accionpopularpe/" title="instagram en movil de accion popular" target="_blank"><img src="icons/instagram-peruano.svg" alt="instagram"></a></li>
         <li><a href="https://www.youtube.com/@AccionPopularPE" title="youtube en movil de accion popular" target="_blank"><img src="icons/youtube-peruano.svg" alt="youtube"></a></li>
         <li class="correo-accion-popular"><a href="mailto:info@accionpopular.com.pe" title="correo de accion popular"><img src="icons/correo-peruano.svg" alt="correo electronico en movil">info&#64;accionpopular.com.pe</a></li>

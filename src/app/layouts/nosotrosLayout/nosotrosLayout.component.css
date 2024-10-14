@@ -35,6 +35,7 @@ font-size: 39.81px;
 font-style: normal;
 font-weight: 900;
 line-height: normal;
+margin: 40px 20px;
 }
 swiper-slide img{
   display: flex;
@@ -53,6 +54,15 @@ swiper-slide{
   display: flex;
   flex-direction: column;
   gap: 0px;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  height: auto;
+}
+swiper-slide h2 {
+  white-space: wrap;
+}
+
+@media (width < 900px) {
+  swiper-slide h2 {
+    white-space: wrap;
+  }
 }

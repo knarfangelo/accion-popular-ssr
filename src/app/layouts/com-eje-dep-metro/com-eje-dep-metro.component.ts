@@ -16,7 +16,7 @@ import {comEjeDepMetroData, IComEjeDepMetro} from './Mantenimiento/comEjeDepMetr
    <app-navegacion></app-navegacion>
     <header>
       <div class="banner">
-        <h1>COMITES EJECUTIVOS DEPARTAMENTALES Y METROPOLITANO</h1>
+        <h1>COMITÉS EJECUTIVOS DEPARTAMENTALES Y METROPOLITANO</h1>
         <img class="img-banner" src="banners/belaunde-terry-pueblo-peruano.webp" alt="banner de belaunde saludando al pueblo peruano">
       </div>
       <main>

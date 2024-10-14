@@ -98,7 +98,7 @@ export const comiteEjecutivoNacionalData:IComiteEjecutivoNacional[] = [
     },
     {
         id: 16,
-        imagen: 'comite-ejecutivo-nacional/hombre-peruano.png',
+        imagen: 'comite-ejecutivo-nacional/linares-ramos-geison-jhon.png',
         nombre: 'LINARES RAMOS, Geison Jhon',
         cargo: 'SECRETARIO NACIONAL DE ASUNTOS EDUCACIONALES'
     },

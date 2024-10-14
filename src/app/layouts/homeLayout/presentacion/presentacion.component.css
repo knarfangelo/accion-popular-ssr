@@ -20,7 +20,7 @@ h1{
 main{
   display: flex;
   align-items: center;
-  max-width: 1130px;
+  max-width: 1180px;
   margin: 0 20px;
   justify-content: center;
   flex-direction: column;
@@ -43,7 +43,9 @@ main{
   padding: 8px 16px;
   gap: 48px;
 }
-
+.texto{
+  justify-content: justify;
+}
 @media (width < 900px) {
   h1{
     font-size: 39.81px;

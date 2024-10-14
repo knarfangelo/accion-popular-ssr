@@ -29,8 +29,8 @@ export const archivosJSON:IArchivos[]= [
     {
         id: 4,
         titulo: "REGLAMENTO DE ADMINISTRACIÓN Y FINANZAS",
-        linkDescargar: "/intranet/reglamento-general-de-disciplina.pdf",
-        linkVisualizar: "/intranet/reglamento-general-de-disciplina.pdf"
+        linkDescargar: "/intranet/reglamento-de-administracion-y-finanzas.pdf",
+        linkVisualizar: "/intranet/reglamento-de-administracion-y-finanzas.pdf"
     },
     {
         id: 5,
@@ -43,11 +43,5 @@ export const archivosJSON:IArchivos[]= [
         titulo: "DIRECTIVA PARA CONFORMAR TRIBUNALES DE DISCIPLINA PROVINCIALES",
         linkDescargar: "/intranet/directiva-para-conformar-tribunales-de-disciplina.pdf",
         linkVisualizar: "/intranet/directiva-para-conformar-tribunales-de-disciplina.pdf"
-    },
-    {
-        id: 7,
-        titulo: "LA PROPUESTA DE MODIFICACIÓN DEL REGLAMENTO DE DISCIPLINA",
-        linkDescargar: "/intranet/propuesta-de-modificacion-reglamento-disciplina.pdf",
-        linkVisualizar: "/intranet/propuesta-de-modificacion-reglamento-disciplina.pdf"
     },
 ]
