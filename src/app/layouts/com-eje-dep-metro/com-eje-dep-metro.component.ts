@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { FooterComponent } from "../footer/footer.component";
 import { NavegacionComponent } from "../navegacion/navegacion.component";
 import {comEjeDepMetroData, IComEjeDepMetro} from './Mantenimiento/comEjeDepMetro';
@@ -20,8 +20,8 @@ import {comEjeDepMetroData, IComEjeDepMetro} from './Mantenimiento/comEjeDepMetr
         <img class="img-banner" src="banners/belaunde-terry-pueblo-peruano.webp" alt="banner de belaunde saludando al pueblo peruano">
       </div>
       <main>
-        @for (integrante of comEjeDepMetroData; track $index) {
-          <article class="cards">
+        @for (integrante of comEjeDepMetroData; track $index ) {
+          <article class="cards"  (click)="selectRow(integrante)">
             <img [src]="integrante.imagen" [alt]="integrante.cargo">
             <section class="descripcion">  
               <h1 class="nombre">{{integrante.nombre}}</h1>
@@ -34,9 +34,15 @@ import {comEjeDepMetroData, IComEjeDepMetro} from './Mantenimiento/comEjeDepMetr
     <app-footer></app-footer>
   `,
   styleUrl: './com-eje-dep-metro.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComEjeDepMetroComponent {
   comEjeDepMetroData:IComEjeDepMetro[] = comEjeDepMetroData;
+  selectedIntegrante: IComEjeDepMetro | null = null;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  
+  selectRow(integrante: IComEjeDepMetro) {
+    this.selectedIntegrante = integrante; // Guardar el integrante seleccionado
+    console.log('Integrante seleccionado:', integrante);
+  }
 }

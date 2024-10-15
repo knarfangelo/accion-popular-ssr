@@ -44,6 +44,10 @@ export class SwiperHomeComponent {
           prevEl:'.swiper-button-prev',
         },
         loop: true,
+        pagination: {
+          enabled: true,
+          clickable: true,
+        },
         autoplay: {
           delay: 1800,
           disableOnInteraction: false,

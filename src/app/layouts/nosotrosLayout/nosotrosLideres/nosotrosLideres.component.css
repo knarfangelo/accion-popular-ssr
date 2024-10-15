@@ -46,6 +46,7 @@ h2{
 }
 .descripcion p {
   color: #fff;
+  text-align: justify;
 }
 swiper-slide{
   display: flex;
@@ -53,7 +54,7 @@ swiper-slide{
   justify-content: center;
   box-sizing: border-box;
   padding: 0 20px;
-  gap: 20px;
+  gap: 35px;
 }
 .descripcion {
   max-width: 472px;

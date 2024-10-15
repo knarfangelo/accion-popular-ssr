@@ -1,0 +1,42 @@
+.contenedor{
+  position: relative;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+
+.ficha{
+  display: flex;
+  width: 690px;
+}
+.fecha{
+  position: absolute;
+  top: 235px;
+  left: 330px;
+}
+.apellidoPaterno{
+  position: absolute;
+  top: 370px;
+  left: 70px;
+}
+.apellidoMaterno{
+  position: absolute;
+  top: 370px;
+  left: 270px;
+}
+
+.nombres{
+  position: absolute;
+  top: 370px;
+  left: 480px;
+}
+.dni{
+  position: absolute;
+  top: 417px;
+  left: 80px;
+}
+.fechaNacimiento{
+  position: absolute;
+  top: 417px;
+  left: 270px;
+}

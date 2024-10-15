@@ -37,6 +37,7 @@ font-weight: 900;
 line-height: normal;
 margin: 40px 20px;
 }
+
 swiper-slide img{
   display: flex;
   margin: auto;
@@ -54,15 +55,22 @@ swiper-slide{
   display: flex;
   flex-direction: column;
   gap: 0px;
-  justify-content: space-between;
   height: auto;
 }
 swiper-slide h2 {
   white-space: wrap;
 }
-
+@media (width < 1630px) {
+  h2{
+    min-height: 38px;
+  }
+  
+}
 @media (width < 900px) {
   swiper-slide h2 {
     white-space: wrap;
+  }
+  swiper-container {
+    max-width: 400px;
   }
 }

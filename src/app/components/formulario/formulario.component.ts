@@ -1,6 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, PLATFORM_ID, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { NavegacionComponent } from "../../layouts/navegacion/navegacion.component";
 import { FooterComponent } from "../../layouts/footer/footer.component";
 import { HttpClient } from '@angular/common/http';
@@ -38,7 +38,7 @@ import { ApiService } from '../../Api.service';
     </div>
   </label>
 
-  <label for="correo"><span>Correo electronico</span>
+  <label for="correo"><span>Correo Eléctronico</span>
     <input formControlName="correo" id="correo" type="email" placeholder="ejemplo@gmail.com" required>
     <div *ngIf="formulario.get('correo')?.invalid && formulario.get('correo')?.touched" class="error-message">
       Debes ingresar un correo electrónico válido.
@@ -46,18 +46,21 @@ import { ApiService } from '../../Api.service';
   </label>
 
   <label for="dni"><span>DNI</span>
-    <input formControlName="dni" id="dni" type="number" placeholder="78896610" required>
-    <div *ngIf="formulario.get('dni')?.invalid && formulario.get('dni')?.touched" class="error-message">
-      Debes ingresar un DNI válido.
-    </div>
-  </label>
+  <input formControlName="dni" id="dni" type="number" placeholder="78896610" required (input)="limitarDni($event)">
+  <div *ngIf="formulario.get('dni')?.invalid && formulario.get('dni')?.touched" class="error-message">
+    Debes ingresar un DNI válido (máx 8 números).
+  </div>
+</label>
 
-  <label for="fechaNacimiento"><span>Fecha de Nacimiento</span>
-    <input formControlName="fechaNacimiento" id="fechaNacimiento" type="date" required>
-    <div *ngIf="formulario.get('fechaNacimiento')?.invalid && formulario.get('fechaNacimiento')?.touched" class="error-message">
-      Debes seleccionar una fecha de nacimiento.
-    </div>
-  </label>
+
+<label for="fechaNacimiento"><span>Fecha de Nacimiento</span>
+  <input formControlName="fechaNacimiento" id="fechaNacimiento" type="date"  required>
+  <div *ngIf="formulario.get('fechaNacimiento')?.invalid && formulario.get('fechaNacimiento')?.touched" class="error-message">
+    <span *ngIf="formulario.get('fechaNacimiento')?.errors?.['required']">Debes seleccionar una fecha de nacimiento.</span>
+    <span *ngIf="formulario.get('fechaNacimiento')?.errors?.['edadInsuficiente']">No cuenta con la edad suficiente (debe ser mayor de 18 años).</span>
+  </div>
+</label>
+
 
   <div class="container">
     <h3>Lugar de nacimiento</h3>
@@ -191,8 +194,8 @@ export class FormularioComponent implements OnInit {
       nombres: ['', Validators.required],
       apellidos: ['', Validators.required],
       correo: ['', [Validators.required, Validators.email]],
-      dni: ['', [Validators.required, Validators.pattern('^[0-9]*$')]], // Solo números
-      fechaNacimiento: ['', Validators.required],
+      dni: ['', [Validators.required, Validators.pattern('^[0-9]{8}$')]], // Exactamente 8 dígitos
+      fechaNacimiento: ['', [Validators.required, this.mayorDeEdadValidator]], // Validador directamente en el formulario
       departamentoNacimiento: ['', Validators.required],
       provinciaNacimiento: ['', Validators.required],
       distritoNacimiento: ['', Validators.required],
@@ -215,7 +218,26 @@ export class FormularioComponent implements OnInit {
         }));
         this.updateDepartamentos();
       });
+
+      const defaultDate = new Date(1999, 0, 1); // Enero 1, 2000
+    this.formulario.get('fechaNacimiento')?.setValue(this.formatDate(defaultDate));
     }
+  }
+
+  formatDate(date: Date): string {
+    // Formatea la fecha a 'yyyy-MM-dd'
+    let month = '' + (date.getMonth() + 1);
+    let day = '' + date.getDate();
+    const year = date.getFullYear();
+  
+    if (month.length < 2) {
+      month = '0' + month;
+    }
+    if (day.length < 2) {
+      day = '0' + day;
+    }
+  
+    return [year, month, day].join('-');
   }
 
   decodeHtmlEntities(html: string): string {
@@ -283,6 +305,35 @@ export class FormularioComponent implements OnInit {
     this.distritosDomicilio = [...new Set(distritosFiltrados)];
     this.formulario.get('distritoDomicilio')?.setValue('');
   }
+
+  limitarDni(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+  
+    // Limitar el valor a un máximo de 8 caracteres
+    if (inputElement.value.length > 8) {
+      inputElement.value = inputElement.value.slice(0, 8);
+    }
+  
+    // Actualizar el valor del FormControl manualmente
+    this.formulario.get('dni')?.setValue(inputElement.value);
+  }
+  
+
+  mayorDeEdadValidator(control: AbstractControl): ValidationErrors | null {
+    const fechaNacimiento = new Date(control.value);
+    const hoy = new Date();
+
+    const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+    const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+
+    // Si no ha llegado al mes o día exacto, se resta un año
+    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+      return { edadInsuficiente: true };
+    }
+
+    return edad >= 18 ? null : { edadInsuficiente: true };
+  }
+
 
   enviarFormulario() {
     // Marcar todos los campos como tocados para mostrar mensajes de error

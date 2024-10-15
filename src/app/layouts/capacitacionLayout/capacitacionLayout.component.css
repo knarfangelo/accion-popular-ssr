@@ -33,7 +33,7 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 80px;
+  margin: 0;
   flex-direction: column;
 }
 
@@ -60,8 +60,12 @@ article .contenido{
   text-align: justify;
 }
 .capacitacion{
-  object-fit: contain;
+  object-fit: cover;
+  max-width: 502px;
+  max-height: 423px;
+  border-radius: 10px;
   object-position: center;
+  width: auto;
 }
 .buttons{
   display: flex;
@@ -78,6 +82,14 @@ article .contenido{
   justify-content: center;
   margin: 50px 0;
 }
+@media (width < 1200px) {
+  main {
+   margin: 0;
+  }
+  article{
+    margin: 0 20px;
+  }
+}
 @media (width < 900px) {
   .buttons a {
     margin: 0;
@@ -93,7 +105,9 @@ article .contenido{
   }
   article{
     flex-direction: column;
+    align-items: center;
     margin: 0;
+    margin-bottom: 30px;
   }
   .buttons{
     flex-direction: column;

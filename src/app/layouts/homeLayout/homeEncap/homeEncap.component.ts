@@ -47,6 +47,8 @@ export class HomeEncapComponent {
         slidesPerView: 'auto',
         speed: 20000,
         loop: true,
+        preventClicksPropagation: false,
+        simulateTouch: false,
         autoplay: {
         delay: 1,
         disableOnInteraction: true

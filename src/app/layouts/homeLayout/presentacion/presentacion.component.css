@@ -46,6 +46,9 @@ main{
 .texto{
   justify-content: justify;
 }
+.no-habilitado{
+  background-color: gray !important;
+}
 @media (width < 900px) {
   h1{
     font-size: 39.81px;

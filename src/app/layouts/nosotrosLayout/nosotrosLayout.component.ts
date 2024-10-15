@@ -25,25 +25,25 @@ schemas:[CUSTOM_ELEMENTS_SCHEMA],
       <p>Con dos presidencias históricas, en 1963 y 1980, hemos impulsado la modernización del Perú, defendido la libertad de prensa, y promovido reformas sociales y económicas que mejoraron la calidad de vida de los peruanos. Nuestro compromiso con los valores democráticos sigue guiando cada una de nuestras acciones, siempre con la mirada puesta en un Perú más justo y equitativo.</p>
       <h1>Nuestros Valores</h1>
       <swiper-container init=false class="swiper-valores">
-        <swiper-slide>
+        <swiper-slide><div class="info">
           <h2>Democracia y Participación 
           Ciudadana</h2>
-          <div class="info">
+          
           <p>Creemos en un gobierno transparente y en el poder del pueblo para tomar decisiones</p>
-         <img src="nosotros/democracia-participacion-ciudadana.png" alt="democracia y participación ciudadana">
-      </div>   </swiper-slide>
-        <swiper-slide class="valor">
+      </div>    <img src="nosotros/democracia-participacion-ciudadana.png" alt="democracia y participación ciudadana">
+        </swiper-slide>
+        <swiper-slide class="valor"><div class="info">
           <h2>Desarrollo Sostenible</h2>
-          <div class="info">
+          
           <p>Nuestro enfoque está en el crecimiento económico equilibrado con el respeto al medio ambiente.</p>
-          <img src="nosotros/desarrollo-sostenible.png" alt="desarrollo sostenible">
-       </div> </swiper-slide>
+        </div>    <img src="nosotros/desarrollo-sostenible.png" alt="desarrollo sostenible">
+      </swiper-slide>
         <swiper-slide class="valor">
-          <h2>Justicia Social</h2>
-          <div class="info">
+       <div class="info">   <h2>Justicia Social</h2>
+          
           <p>Promovemos la igualdad de oportunidades y la reducción de las brechas sociales.</p>
-          <img src="nosotros/justicial-social.png" alt="justicia social">
-        </div></swiper-slide>
+        </div>  <img src="nosotros/justicial-social.png" alt="justicia social">
+        </swiper-slide>
       </swiper-container>
       </main>  
     </header>

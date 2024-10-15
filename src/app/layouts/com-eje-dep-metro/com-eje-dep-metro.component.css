@@ -21,6 +21,9 @@ main{
   font-style: normal;
   font-weight: 900;
   line-height: normal;
+  display: flex;
+  align-items: top;
+  justify-content: center;
 }
 .cards h2{
   color: #000;
@@ -78,12 +81,20 @@ main{
 }
 .descripcion {
   padding: 5px;
+  height: 100%;
 }
-@media (width < 1200px) {
-  main{
-  grid-template-columns: minmax(0, 320px) minmax(0, 320px);
-  }
+
+/*aliniear*/
+main > article:nth-child(7) .nombre,
+main > article:nth-child(2) .nombre,
+main > article:nth-child(8) .nombre,
+main > article:nth-child(9) .nombre,
+main > article:nth-child(11) .nombre,
+main > article:nth-child(12) .nombre,
+main >  article:nth-child(3) .nombre {
+  height: 38px;
 }
+
 
 @media (width < 800px) {
   .banner{

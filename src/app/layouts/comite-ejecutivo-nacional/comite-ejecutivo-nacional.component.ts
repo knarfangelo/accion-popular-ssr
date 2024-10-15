@@ -23,7 +23,7 @@ import { comiteEjecutivoNacionalData, IComiteEjecutivoNacional } from './manteni
         @for (integrante of comiteEjecutivoNacional; track $index) {
           <article class="cards">
             <img [src]="integrante.imagen" [alt]="integrante.cargo">
-            <section class="descripcion">  
+          <section class="descripcion">    
               <h1 class="nombre">{{integrante.nombre}}</h1>
               <h2 class="cargo">{{integrante.cargo}}</h2>
               </section>

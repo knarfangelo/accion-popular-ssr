@@ -36,4 +36,18 @@ export class NoticiasEventosDesktopComponent {
 
   noticias: Noticia[] = noticias; // Utiliza la constante de noticias
 
+  constructor(){
+    this.noticias = this.sortNoticiasByDate(noticias);
+  }
+
+  private parseDate(fecha: string): Date {
+    const [day, month, year] = fecha.split('/').map(Number);
+    return new Date(year, month - 1, day); // Mes en Date empieza desde 0 (enero es 0)
+  }
+
+  // Función para ordenar las noticias por fecha
+  private sortNoticiasByDate(noticias: Noticia[]): Noticia[] {
+    return noticias.sort((a, b) => this.parseDate(b.fecha).getTime() - this.parseDate(a.fecha).getTime());
+  }
+
 }

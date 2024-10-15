@@ -17,6 +17,9 @@ header{
   width: 100%;
   height: auto;
 }
+.no-habilitado{
+  background-color: gray !important;
+}
 h1{
 color: #DE1A22;
 padding-top: 30px;
@@ -55,7 +58,7 @@ article .contenido{
   background: #E31F27;
   color: #fff;
   display: flex;
-  width: 200px;
+  width: 230px;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
@@ -79,5 +82,8 @@ article .contenido{
   }
   img{
     width: 95%;
+  }
+  .juventudes{
+    width: 300px;
   }
 }

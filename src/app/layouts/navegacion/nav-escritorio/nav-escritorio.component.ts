@@ -49,7 +49,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         <li><a href="/documentos" title="Documentos del partido político peruano acción popular">Documentos</a></li>
         <li><a href="/juventudes-accion-popular" title="Juventudes de acción popular">Juventudes</a></li>
         <li><a href="/noticias-eventos" title="Juventudes de acción popular">Noticias y eventos</a></li>
-        <li><a class="formulario" href="/formulario" title="Formulario para nuevos integrantes">Únete a nosotros</a></li>
+        <li><a class="formulario no-habilitado" title="Formulario para nuevos integrantes">Únete a nosotros</a></li>
       </ul>
     </nav>
   `,
@@ -82,11 +82,13 @@ export class NavEscritorioComponent {
 
   desplegarLiderazgo(event: Event) {
     event.stopPropagation();
+    this.organosPartidariosDesplegado = false; // Cerrar el menú de órganos partidarios al abrir el de liderazgo
     this.liderazgoDesplegado = !this.liderazgoDesplegado;
   }
 
   desplegarOrganosPartidarios(event: Event) {
     event.stopPropagation(); // Evita que el clic en el propio menú cierre el desplegable
+    this.liderazgoDesplegado = false;
     this.organosPartidariosDesplegado = !this.organosPartidariosDesplegado; // Alternar visibilidad del nuevo menú
   }
 

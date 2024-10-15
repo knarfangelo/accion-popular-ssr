@@ -20,7 +20,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       <ul class="navegacion-movil-responsivo">
         <li><button (click)="toggleSitemap()"><img src="icons/burguer-responsive.svg" alt="boton responsive para moviles"></button></li>
         <li><a href="/"><img src="icons/logo-partido-peruano-ap.svg" alt="logo de acción popular"></a></li>
-        <li class="unete"><a href="/formulario">Únete</a></li>
+        <li class="unete"><a class="no-habilitado">Únete</a></li>
       </ul>
       <ul class="sitemap-movil" id="sitemap-accion-popular"  [@slideInLeft]="sitemapVisible ? 'visible' : 'hidden'">
         <li class="icon-close"><button (click)="toggleSitemap()" ><img src="icons/close-partido-politico-peruano-ap.svg" alt="imagen para cerrar el responsive"></button></li>
@@ -55,7 +55,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         <li><a href="documentos" title="Documentos del partido político peruano acción popular">Documentos</a></li>
         <li><a href="/juventudes-accion-popular" title="Juventudes de acción popular">Juventudes</a></li>
         <li><a href="/noticias-eventos" title="Nuevas noticias de acción popular" >Noticias y Eventos</a></li>
-        <li class="unete-nosotros"><a href="/formulario" title="Formulario para nuevos integrantes">Unete a nosotros</a></li>
+        <li class="unete-nosotros"><a class="no-habilitado" title="Formulario para nuevos integrantes">Unete a nosotros</a></li>
       </ul>
     </nav>
     <div class="relleno"></div>

@@ -20,7 +20,7 @@ a {
   margin: auto;
 }
 .no-habilitado {
-  color: gray !important;
+  background-color: gray !important;
 }
 .navegacion-escritorio .redes {
   width: 100%;

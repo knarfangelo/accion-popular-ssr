@@ -47,9 +47,12 @@ export class HomeNoticiasComponent {
       const swiperOptions: SwiperOptions = {
         slidesPerView: 'auto',
         spaceBetween: 34,
-        pagination: true,
+        pagination: {
+          enabled: true,
+          clickable: true,
+        },
         breakpoints: {
-          900: {
+          800: {
             slidesPerView: 1,
           },
           1300: {

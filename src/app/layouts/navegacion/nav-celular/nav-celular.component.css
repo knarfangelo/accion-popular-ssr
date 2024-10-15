@@ -133,7 +133,8 @@ a{
   align-items: center;
   padding-left: 20px;
 }
-
+.no-habilitado{
+}
 /*Animacion de despliegue*/
 
 .liderazgo-desplegable span{
