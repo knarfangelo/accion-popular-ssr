@@ -19,10 +19,16 @@ import { FooterComponent } from "../../layouts/footer/footer.component";
     <header>
       <app-navegacion></app-navegacion>
       <main>
-      <img class="banner" src="documentos/banner-documentos.png" alt="">
-      <h1>ESTATUTO</h1>
+      <section class="banner">
+      <img class="banner_fondo" src="banners/belaunde-terry-pueblo-peruano.webp" alt="banner de belaunde terry saludando al pueblo peruano">
+      <div class="banner_contenido">
+        <h1 class="banner_contenido_titulo">Estatutos y Reglamentos</h1>
+        <img class="banner_pala" src="icons/pala-accion-popular.svg" alt="logo de accion popular con fondo transparente">
+      </div>
+    </section>
+      <h1>ESTATUTOS</h1>
       <app-archivos class="archivo" [linkDescargar]="item[0].linkDescargar" [titulo]="item[0].titulo"></app-archivos>
-      <h1>REGLAMENTO</h1>
+      <h1>REGLAMENTOS</h1>
       <section class="archivos">
       @for (item of items; track $index) {
       <app-archivos class="archivos-int" [linkDescargar]="item.linkDescargar" [titulo]="item.titulo"></app-archivos>

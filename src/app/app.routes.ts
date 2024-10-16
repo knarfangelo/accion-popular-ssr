@@ -17,22 +17,38 @@ import { OficinaNacionaRegistroPartidarioComponent } from './layouts/organos-par
 import { FichaAfiliacionComponent } from './components/fichaAfiliacion/fichaAfiliacion.component';
 
 export const routes: Routes = [
-    { path: '', component:HomeLayoutComponent},
-    { path: 'quienes-somos', component:NosotrosLayoutComponent},
-    { path: 'propuestas', component:PropuestasLayoutComponent},
-    { path: 'juventudes-accion-popular', component:JuventudesLayoutComponent},
-    { path: 'capacitacion', component:CapacitacionLayoutComponent},
-    { path: 'formulario', component:FormularioComponent},
-    { path: 'documentos', component:NormativaComponent},
-    { path: 'normativa', component:NormativaComponent},
-    { path: 'encap', component:EncapLayoutComponent},
-    { path: 'bancada', component:BancadaLayoutComponent},
-    { path: 'cursos', component:CursosLayoutComponent},
-    { path: 'noticias-eventos', component:ActualidadComponent},
-    { path: 'comite-ejecutivo-nacional', component:ComiteEjecutivoNacionalComponent},
-    { path: 'comite-politico', component:ComitePoliticoComponent},
-    { path: 'ficha', component:FichaAfiliacionComponent},
-    { path: 'comites-ejecutivos-departamentales-metropolitano', component:ComEjeDepMetroComponent},
-    { path: 'oficina-nacional-registro-partidario', component:OficinaNacionaRegistroPartidarioComponent},
+    { path: '', component: HomeLayoutComponent },
+    { path: 'quienes-somos', component: NosotrosLayoutComponent },
+    { path: 'propuestas', component: PropuestasLayoutComponent },
+    { path: 'juventudes-accion-popular', component: JuventudesLayoutComponent },
+    { path: 'capacitacion', component: CapacitacionLayoutComponent },
+    { path: 'formulario', component: FormularioComponent },
+    { path: 'documentos', component: NormativaComponent },
+    { path: 'normativa', component: NormativaComponent },
+    { path: 'encap', component: EncapLayoutComponent },
+    { path: 'bancada', component: BancadaLayoutComponent },
+    { path: 'cursos', component: CursosLayoutComponent },
+    { path: 'noticias-eventos', component: ActualidadComponent },
+    
+    // Rutas con subrutas
+    {
+        path: 'liderazgo', 
+        children: [
+            { path: 'comite-ejecutivo-nacional', component: ComiteEjecutivoNacionalComponent },
+            { path: 'comite-politico', component: ComitePoliticoComponent },
+            { path: 'comites-ejecutivos-departamentales-metropolitano', component: ComEjeDepMetroComponent },
+            { path: 'bancada', component: BancadaLayoutComponent },
+        ]
+    },
+    
+    {
+        path: 'organos-partidarios', 
+        children: [
+            { path: 'oficina-nacional-registro-partidario', component: OficinaNacionaRegistroPartidarioComponent },
+            // Agrega más subrutas aquí si es necesario
+        ]
+    },
+
+    { path: 'ficha', component: FichaAfiliacionComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

@@ -6,6 +6,48 @@ ul, li {
 a {
   text-decoration: none;
 }
+
+.banner{
+  display: flex;
+  width: 90%;
+  box-sizing: border-box;
+  position: relative;
+  margin: auto;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(191, 22, 28, 0.82) 0%, rgba(255, 255, 255, 0.82) 66.8%);
+}
+
+.banner_fondo{
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+header{
+  padding-bottom: 180px;
+}
+.banner_contenido{
+  display: flex;
+  gap: 30px;
+  padding: 80px;
+}
+.banner_contenido_titulo{
+  color: #000;
+  text-align: center;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: -2.25px;
+}
+
+
 .navegacion-escritorio {
   background-color: #fff;
   width: 90%;
@@ -20,7 +62,7 @@ a {
   margin: auto;
 }
 .no-habilitado {
-  background-color: gray !important;
+  color: gray !important;
 }
 .navegacion-escritorio .redes {
   width: 100%;
@@ -32,7 +74,10 @@ a {
 .navegacion-escritorio .redes a {
   color: #fff;
 }
-
+.navegacion-escritorio .sitemap .active {
+    color: #E31F27; 
+    font-weight: bold;
+}
 .navegacion-escritorio .redes {
   display: flex;
   gap: 17px;
@@ -59,9 +104,6 @@ a {
 .navegacion-escritorio .sitemap a {
   font-weight: 600;
   color: #000;
-}
-.navegacion-escritorio .sitemap .inicio {
-  color: #E31F27;
 }
 .formulario {
   background: #e31f27;

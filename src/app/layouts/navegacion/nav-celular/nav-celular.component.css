@@ -187,3 +187,6 @@ a{
   font-weight: 600;
   padding: 0;
 }
+.navegacion-movil .sitemap-movil .active {
+  color: #E31F27; 
+}
