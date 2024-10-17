@@ -15,6 +15,7 @@ import { ComitePoliticoComponent } from './layouts/comite-politico/comite-politi
 import { ComEjeDepMetroComponent } from './layouts/com-eje-dep-metro/com-eje-dep-metro.component';
 import { OficinaNacionaRegistroPartidarioComponent } from './layouts/organos-partidarios-layout/oficina-naciona-registro-partidario/oficina-naciona-registro-partidario.component';
 import { FichaAfiliacionComponent } from './components/fichaAfiliacion/fichaAfiliacion.component';
+import { FichaAfiliacionDinamicoComponent } from './components/fichaAfiliacionDinamico/fichaAfiliacionDinamico.component';
 
 export const routes: Routes = [
     { path: '', component: HomeLayoutComponent },
@@ -29,6 +30,7 @@ export const routes: Routes = [
     { path: 'bancada', component: BancadaLayoutComponent },
     { path: 'cursos', component: CursosLayoutComponent },
     { path: 'noticias-eventos', component: ActualidadComponent },
+    { path: 'ficha-afiliacion-dinamico', component: FichaAfiliacionDinamicoComponent },
     
     // Rutas con subrutas
     {

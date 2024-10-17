@@ -3,7 +3,9 @@
   background-color: transparent;
   height: 96px;
 }
-
+.no-habilitado-button{
+  background: gray !important;
+}
 ul, li{
   margin: 0;
   padding: 0;
@@ -133,8 +135,7 @@ a{
   align-items: center;
   padding-left: 20px;
 }
-.no-habilitado{
-}
+
 /*Animacion de despliegue*/
 
 .liderazgo-desplegable span{

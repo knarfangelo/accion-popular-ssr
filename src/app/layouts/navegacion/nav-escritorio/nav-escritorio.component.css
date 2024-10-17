@@ -64,6 +64,9 @@ header{
 .no-habilitado {
   color: gray !important;
 }
+.no-habilitado-button{
+  background-color: gray !important;
+}
 .navegacion-escritorio .redes {
   width: 100%;
   background-color: #000;

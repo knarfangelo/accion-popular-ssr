@@ -14,12 +14,6 @@ export const comEjeDepMetroData: IComEjeDepMetro[] = [
         imagen: 'com-eje-dep-metro/mujer-peruana.png'
     },
     {
-        id: 2,
-        nombre: 'Sanchez Norabuena, Nerio Edison',
-        cargo: 'SECRETARIO DE PLANIFICACIÓN Y DESARROLLO DEPARTAMENTO DE ANCASH',
-        imagen: 'com-eje-dep-metro/hombre-peruano.png'
-    },
-    {
         id: 3,
         nombre: 'ESPINOZA SILVA, Josei Antonio',
         cargo: 'SECRETARIO GENERAL DEPARTAMENTAL DE APURIMAC',
@@ -107,12 +101,6 @@ export const comEjeDepMetroData: IComEjeDepMetro[] = [
         id: 17,
         nombre: 'CHIRINOS SARMIENTO, Keith Jack',
         cargo: 'SECRETARIO GENERAL DEPARTAMENTAL DE MOQUEGUA',
-        imagen: 'com-eje-dep-metro/hombre-peruano.png'
-    },
-    {
-        id: 18,
-        nombre: 'Acero Oliva, Blademir',
-        cargo: 'SECRETARIO DEPARTAMENTAL de PLANIFICACIÓN Y DESARROLLO DE MOQUEGUA',
         imagen: 'com-eje-dep-metro/hombre-peruano.png'
     },
     {
