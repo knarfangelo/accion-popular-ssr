@@ -10,8 +10,22 @@ header{
   padding-right: 58.07px;
   transform: scale(1.5);
   position: relative;
+  top: 250px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
-
+@media print {
+  header {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+  }
+  .boton-imprimir{
+    display: none;
+  }
+}
 .panel_1{
   display: flex;
   gap: 16.75px;

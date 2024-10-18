@@ -1,5 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxPrintModule } from 'ngx-print';
 
 @Component({
@@ -120,46 +121,30 @@ import { NgxPrintModule } from 'ngx-print';
         <img src="ficha/paraguas.png" alt="">
       </div>
     </header>
-    <button (click)="printContent()">Imprimir</button>
+    <button class="boton-imprimir" (click)="printContent()">Imprimir</button>
   `,
   styleUrls: ['./fichaAfiliacionDinamico.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FichaAfiliacionDinamicoComponent {
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  datosAfiliacion: any;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router:Router) {}
 
   printContent() {
     if (isPlatformBrowser(this.platformId)) {
-      const printContents = document.getElementById('print-section')?.innerHTML; // Captura el contenido a imprimir
-      const styles = document.querySelectorAll('style, link[rel="stylesheet"]'); // Captura todos los estilos
-  
-      if (printContents) {
-        const popupWindow = window.open('', '_blank', 'width=595,height=842'); // Tamaño A4 en píxeles
-        popupWindow?.document.open();
-        popupWindow?.document.write(`
-          <html>
-            <head>
-              <title>Imprimir</title>
-              ${Array.from(styles).map(style => style.outerHTML).join('')} <!-- Inserta los estilos -->
-              <style>
-                @media print {
-                  body {
-                    margin: 0;
-                    padding: 0;
-                    width: 595px; /* Ancho A4 */
-                    height: 842px; /* Alto A4 */
-                    overflow: hidden; /* Oculta contenido desbordante */
-                  }
-                }
-              </style>
-            </head>
-            <body onload="window.print(); window.close()">
-              ${printContents} <!-- Contenido a imprimir -->
-            </body>
-          </html>
-        `);
-        popupWindow?.document.close();
-      }
+      window.print();
+    }
+  }
+
+  ngOnInit(): void {
+    // Recoger los datos del state (opción recomendada)
+    if (this.router.getCurrentNavigation()?.extras.state) {
+      this.datosAfiliacion = this.router.getCurrentNavigation()?.extras.state?.datosFormulario;
+    } else {
+      // Alternativamente, recoger los datos del localStorage si se guardaron allí
+      this.datosAfiliacion = JSON.parse(localStorage.getItem('fichaAfiliacion') || '{}');
     }
   }
   
