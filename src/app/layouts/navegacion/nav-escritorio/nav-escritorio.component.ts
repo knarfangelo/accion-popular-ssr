@@ -53,7 +53,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
     <li><a routerLink="/documentos" routerLinkActive="active" title="Documentos del partido político peruano acción popular">Documentos</a></li>
     <li><a routerLink="/juventudes-accion-popular" routerLinkActive="active" title="Juventudes de acción popular">Juventudes</a></li>
     <li><a routerLink="/noticias-eventos" routerLinkActive="active" title="Noticias y eventos de acción popular">Noticias y eventos</a></li>
-    <li><a class="formulario no-habilitado-button" title="Formulario para nuevos integrantes">Únete a nosotros</a></li>
+    <li><a class="formulario" href="ficha-afiliacion" title="Formulario para nuevos integrantes">Únete a nosotros</a></li>
   </ul>
 </nav>
 

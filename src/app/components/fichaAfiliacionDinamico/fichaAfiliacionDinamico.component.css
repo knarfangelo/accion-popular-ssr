@@ -8,14 +8,15 @@ header{
   padding-top: 40.15px;
   padding-left: 45.75px;
   padding-right: 58.07px;
-  /*transform: scale(1.5);*/
   position: relative;
+  transform: scale(1.5);
   left: 0;
   right: 0;
   margin: auto;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-top: 250px;
+  margin-bottom: 250px;
 }
+
 app-footer{
   margin-top: 1200px;
 }
@@ -23,14 +24,25 @@ app-footer{
   display: flex;
   flex-direction: column;
 }
+.botones{
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  margin: 30px 0;
+  margin-top: 0;
+}
 .boton-imprimir{
   font-family: Arial, Helvetica, sans-serif;
-  max-width: 200px;
+  max-width: 198px;
+  height: 40px;
   left: 0;
   right: 0;
   margin: auto;
-  margin-top: 30px;
-  font-size: 25px;
+  font-size: 15px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 10px;
+  padding: 0 20px;
   background-color: #E31F27;
   color: white;
 }
@@ -446,10 +458,15 @@ app-footer{
   height: 75.45px;
   border: 1px solid #000;
 }
+
+
 @media print {
   /* Estilos para la impresión */
   header {
+    
     display: flex; /* O cualquier otra estructura que necesites */
     transform-origin: top left; /* Asegura que se escale desde la esquina superior izquierda */
+    margin: 0;
+    transform: scale(1.5); /* Escala el contenido */
   }
 }
