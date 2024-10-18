@@ -5,6 +5,7 @@ import { NavegacionComponent } from "../../layouts/navegacion/navegacion.compone
 import { FooterComponent } from "../../layouts/footer/footer.component";
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../../Api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -189,7 +190,7 @@ export class FormularioComponent implements OnInit {
   selectedDepartamentoDomicilio: string = '';
   selectedProvinciaDomicilio: string = '';
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient, private fb: FormBuilder,  private apiService: ApiService) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient, private fb: FormBuilder,  private apiService: ApiService, private router:Router) {
     this.formulario = this.fb.group({
       nombres: ['', Validators.required],
       apellidos: ['', Validators.required],
@@ -343,7 +344,10 @@ export class FormularioComponent implements OnInit {
       
       this.formularioReaccion = false;
       const datosFormulario = this.formulario.value;
-  
+      localStorage.setItem('fichaAfiliacion', JSON.stringify(datosFormulario));
+
+    // Redirigir al componente de ficha con los datos
+      this.router.navigate(['/ficha-afiliacion'], { state: { datosFormulario } });
       // Llamar al servicio para enviar datos
       this.apiService.enviarDatos(datosFormulario).subscribe(
         response => {

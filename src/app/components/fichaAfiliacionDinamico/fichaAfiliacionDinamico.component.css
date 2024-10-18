@@ -8,19 +8,50 @@ header{
   padding-top: 40.15px;
   padding-left: 45.75px;
   padding-right: 58.07px;
-  transform: scale(1.5);
+  /*transform: scale(1.5);*/
   position: relative;
-  top: 250px;
   left: 0;
   right: 0;
   margin: auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
+app-footer{
+  margin-top: 1200px;
+}
+.opciones{
+  display: flex;
+  flex-direction: column;
+}
+.boton-imprimir{
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 200px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 25px;
+  background-color: #E31F27;
+  color: white;
+}
+
 @media print {
+  @page {
+    margin: 0;
+    size: A4;
+  }
   header {
     top: 0;
     left: 0;
     right: 0;
     margin: 0;
+    transform: scale(1.5);
+  }
+  app-navegacion{
+    display: none;
+  }
+  app-footer{
+    display: none;
   }
   .boton-imprimir{
     display: none;
@@ -121,7 +152,7 @@ header{
 .panel_3_flex1{
   display: flex;
   font-size: 12px;
-  gap: 11px;
+  gap: 15px;
 }
 .panel_3_flex1 input{
   border: 1px solid #000;
@@ -135,19 +166,28 @@ header{
 .panel_3_flex1_label .input1{
   width: 153.2px;
   height: 16.85px;
+  padding: 0;
+  box-sizing: border-box;
+  padding-left: 5px;
 }
 .panel_3_flex1_label .input2{
   width: 178.3px;
   height: 16.85px;
+  padding: 0;
+  box-sizing: border-box;
+  padding-left: 5px;
 }
 .panel_3_flex1_label .input3{
   width: 135.5px;
   height: 16.85px;
+  padding: 0;
+  box-sizing: border-box;
+  padding-left: 5px;
 }
 
 .panel_3_flex2{
   display: flex;
-  gap: 8.25px;
+  gap: 10px;
 }
 .panel_3_flex2_label{
   font-size: 12px;
@@ -158,6 +198,8 @@ header{
 }
 .panel_3_flex2_label input{
   padding: 0;
+  box-sizing: border-box;
+  padding-left: 5px;
 }
 
 .panel_3_flex2_label .input1{
@@ -198,6 +240,13 @@ header{
   height: 16.1px;
   border: 1px solid #000;
   padding: 0;
+  box-sizing: border-box;
+  padding-left: 5px;
+}
+.panel_4{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .panel_4_titulo{
   font-size: 12px;
@@ -215,23 +264,30 @@ header{
   align-items: center;
   justify-content: center;
 }
+
 .panel_4_flex1_label:first-child input{
+  box-sizing: border-box;
   width: 160.9px;
   height: 16.9px;
   padding: 0;
+  padding-left: 5px ;
   border: 1px solid #000;
 
 }
 .panel_4_flex1_label:nth-child(2) input{
+  box-sizing: border-box;
   width: 167.8px;
   height: 16.9px;
   padding: 0;
+  padding-left: 5px ;
   border: 1px solid #000;
 }
 .panel_4_flex1_label:nth-child(3) input{
+  box-sizing: border-box;
   width: 138.95px;
   height: 16.9px;
   padding: 0;
+  padding-left: 5px;
   border: 1px solid #000;
 }
 .panel_4_flex2 span{
@@ -241,9 +297,14 @@ header{
 .panel_4_flex2_label{
   display: flex;
   flex-direction: column;
+  max-width: 488px;
 }
 .panel_4_flex2_label .input1{
+  box-sizing: border-box;
+  padding: 0;
+  padding-left: 5px;
   height: 16.1px;
+  font-size: 12px;
   border: 1px solid #000;
 }
 .panel_4_flex3{
@@ -270,12 +331,16 @@ header{
 .panel_4_flex3_label:first-child > input{
   width: 100%;
   padding: 0;
+  box-sizing: border-box;
+  padding-left: 5px;
   border: 1px solid #000;
   height: 17.05px;
 }
 .panel_4_flex3_label:nth-child(2) > input{
   width: 100%;
   padding: 0;
+  box-sizing: border-box;
+  padding-left: 5px;
   border: 1px solid #000;
   height: 17.05px;
 }
@@ -297,6 +362,8 @@ header{
   display: flex;
   width: 100%;
   padding: 0;
+  box-sizing: border-box;
+  padding-left: 5px;
   border: 1px solid #000;
 }
 
@@ -305,6 +372,50 @@ header{
   flex-direction: column;
   gap: 5px;
   font-size: 12px;
+  position: relative;
+}
+.panel_5_flotante{
+  color: red ;
+  border: 1px solid red;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.panel_5_flotante .nombres-apellidos{
+  position: absolute;
+  top: 21px;
+  left: 20px;  
+}
+.panel_5_flotante .dni{
+  position: absolute;
+  top: 21px;
+  left: 390px;  
+}
+.panel_5_flotante .distrito{
+  position: absolute;
+  top: 35px;
+  left: 390px;  
+}
+.panel_5_flotante .provincia{
+  position: absolute;
+  top: 49px;
+  left: 48px;  
+}
+.panel_5_flotante .region{
+  position: absolute;
+  top: 49px;
+  left: 197px;  
+}
+.panel_5_flotante .calle-avenida{
+  position: absolute;
+  top: 34px;
+  left: 177px;  
+}
+.panel_5_flotante .ap{
+  position: absolute;
+  top: 60px;
+  left: 177px;  
 }
 .panel_5_parrafo{
   margin-top: 5px;
