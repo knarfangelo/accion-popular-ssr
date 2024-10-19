@@ -47,6 +47,7 @@ app-footer{
   color: white;
 }
 
+
 @media print {
   @page {
     margin: 0;
@@ -459,13 +460,41 @@ app-footer{
   border: 1px solid #000;
 }
 
-
+@media (width < 1100px){
+  header{
+    transform: scale(0.5);
+    overflow: hidden;
+    top: -450px;
+  }
+  .responsive{
+    width: 100%;
+    height: 500px;
+    border: 0px solid transparent;
+  }
+}
+@media (width < 600px) {
+  header{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%) scale(0.5);
+  }
+  .responsive{
+    position: relative;
+  }
+}
 @media print {
   /* Estilos para la impresión */
+  
   header {
     
     display: flex; /* O cualquier otra estructura que necesites */
     transform-origin: top left; /* Asegura que se escale desde la esquina superior izquierda */
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     margin: 0;
     transform: scale(1.5); /* Escala el contenido */
   }

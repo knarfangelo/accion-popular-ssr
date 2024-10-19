@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://accionpopular.com.pe/api/api2.php",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
