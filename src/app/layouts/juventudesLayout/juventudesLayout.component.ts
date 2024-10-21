@@ -29,7 +29,7 @@ import { FooterComponent } from "../footer/footer.component";
         <img src="juventudes/juventudes.png" alt="">
       </article>
       </main>
-      <a  class="juventudes no-habilitado">Únete a nuestra Juventud</a>
+      <a  href="formulario" class="juventudes">Únete a nuestra Juventud</a>
     </header>
     <app-footer></app-footer>
   `,

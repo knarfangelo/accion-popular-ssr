@@ -30,11 +30,10 @@ export const routes: Routes = [
     { path: 'bancada', component: BancadaLayoutComponent },
     { path: 'cursos', component: CursosLayoutComponent },
     { path: 'noticias-eventos', component: ActualidadComponent },
-    { path: 'ficha-afiliacion', component: FichaAfiliacionDinamicoComponent },
-    
+    { path: 'ficha-afiliacion', component: FichaAfiliacionDinamicoComponent },    
     // Rutas con subrutas
     {
-        path: 'liderazgo', 
+        path: 'liderazgo',
         children: [
             { path: 'comite-ejecutivo-nacional', component: ComiteEjecutivoNacionalComponent },
             { path: 'comite-politico', component: ComitePoliticoComponent },
