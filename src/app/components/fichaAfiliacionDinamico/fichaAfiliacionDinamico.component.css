@@ -459,7 +459,60 @@ app-footer{
   height: 75.45px;
   border: 1px solid #000;
 }
-
+.contenedor__reaccion{
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reaccion{
+  width: 722px;
+  text-align: center;
+  font-weight: bold;
+  box-sizing: border-box;
+  padding: 0 110px;
+  position: relative;
+  background-color:#fff;
+  margin-bottom: 50px;
+  border-radius: 20px;
+}
+.reaccion .parrafo{
+  text-align: justify;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+.reaccion .button{
+  background-color: #e31f27;
+  color: #fff;
+  font-weight: bold;
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 250px;
+  margin: auto;
+  bottom: -20px;
+  cursor: pointer;
+}
+.reaccion__titulo{
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+.contenedor__color{
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(227,227,227,1) 87%);
+}
+@media (width < 800px){
+  .reaccion{
+    padding: 0 30px;
+    margin: 0 20px;
+  }
+  .reaccion .parrafo{
+    text-align: center;
+  }
+} 
 @media (width < 1100px){
   header{
     transform: scale(0.5);
@@ -497,5 +550,12 @@ app-footer{
     bottom: 0;
     margin: 0;
     transform: scale(1.5); /* Escala el contenido */
+  }
+  .fecha-nacimiento {
+    display: none; /* Oculta el campo si no tiene un valor válido */
+  }
+
+  .fecha-nacimiento[data-valid="false"] {
+    display: none; /* También oculta el campo si el atributo data-valid es "false" */
   }
 }

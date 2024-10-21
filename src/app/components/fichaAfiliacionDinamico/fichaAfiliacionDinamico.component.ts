@@ -1,6 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Inject, PLATFORM_ID } from '@angular/core';
-import { Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component, ElementRef, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { NgxPrintModule } from 'ngx-print';
 import { NavegacionComponent } from "../../layouts/navegacion/navegacion.component";
 import { FooterComponent } from "../../layouts/footer/footer.component";
@@ -14,6 +14,7 @@ import { IFichaAfiliacion } from './mantenimiento/fichaAfiliacion';
   selector: 'app-ficha-afiliacion-dinamico',
   standalone: true,
   imports: [
+    RouterLink,
     CommonModule,
     NgxPrintModule,
     NavegacionComponent,
@@ -23,7 +24,11 @@ import { IFichaAfiliacion } from './mantenimiento/fichaAfiliacion';
 
   ],
   template: `
+  <div class="contenedor__color">
    <app-navegacion></app-navegacion>
+   @if(terminoProceso){
+
+ 
   <div class="opciones">
     <div class="responsive">
       <header id="print-section">
@@ -58,7 +63,7 @@ import { IFichaAfiliacion } from './mantenimiento/fichaAfiliacion';
             <form [formGroup]="form"> <!-- Vincula el formulario -->
               <div class="panel_3_flex1">
                 <label class="panel_3_flex1_label">Apellido Paterno
-                  <input class="input1" formControlName="apellidoPaterno"> <!-- Cambia [(ngModel)] por formControlName -->
+                  <input class="input1" formControlName="apellidoPaterno" #apellidoPaterno> <!-- Cambia [(ngModel)] por formControlName -->
                 </label>
                 <label class="panel_3_flex1_label">Apellido Materno
                   <input class="input2" formControlName="apellidoMaterno">
@@ -69,11 +74,15 @@ import { IFichaAfiliacion } from './mantenimiento/fichaAfiliacion';
               </div>
 
               <div class="panel_3_flex2">
-                <label class="panel_3_flex2_label">DNI
-                  <input class="input1" formControlName="dni">
-                </label>
+              <label class="panel_3_flex2_label">DNI
+  <input class="input1" formControlName="dni" type="text" maxlength="8" required 
+         (input)="validateDNILength($event)" (keypress)="allowOnlyNumbers($event)">
+            </label>
+
+
+
                 <label class="panel_3_flex2_label">Fecha de Nacimiento
-                  <input class="input2" formControlName="fechaNacimiento">
+                  <input class="input2" type="date" formControlName="fechaNacimiento">
                 </label>
                 <label class="panel_3_flex2_label">Estado Civil
                   <input class="input3" formControlName="estadoCivil">
@@ -153,17 +162,28 @@ import { IFichaAfiliacion } from './mantenimiento/fichaAfiliacion';
       <div class="botones">
         <button class="boton-imprimir" (click)="printContent()">IMPRIME TU FICHA</button>
       </div>
-  </div>
-  <app-footer></app-footer>
+  </div>  }
+  @else{
+    <div class="contenedor__reaccion">
+    <div class="reaccion">
+      <h3 class="reaccion__titulo">EL PROCESO AÚN NO TERMINA</h3>
+      <p class="parrafo">Recuerda que para continuar con el proceso de afiliación tienes que firmar esta ficha de afiliación, poner tu huella dactilar y entregarla en físico a tu dirigente o llevarla al local de Acción Popular más cercano.</p>
+      <button class="button" routerLink="/">REGRESAR AL INICIO</button>
+    </div> 
+    </div>
+  }
+  <app-footer></app-footer></div>
   `,
   styleUrls: ['./fichaAfiliacionDinamico.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FichaAfiliacionDinamicoComponent {
 
+  @ViewChild('apellidoPaterno') apellidoPaternoInput!: ElementRef; 
   fechaActual: string = '';
   form: FormGroup; // Declarar el grupo de formulario
   datosFormulario: IFichaAfiliacion | undefined;
+  terminoProceso: boolean = true;
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router,
@@ -193,7 +213,7 @@ export class FichaAfiliacionDinamicoComponent {
   const navigation = this.router.getCurrentNavigation();
   this.datosFormulario = navigation?.extras.state?.['data'];
 
-  // Rellenar el formulario si los datos están disponibles
+  // Rellenar el formulario si los datos están dFisponibles
   if (this.datosFormulario) {
     this.form.patchValue(this.datosFormulario);
   }
@@ -201,15 +221,26 @@ export class FichaAfiliacionDinamicoComponent {
   console.log(this.datosFormulario);
   }
 
+  ngAfterViewInit(): void {
+    if(isPlatformBrowser(this.platformId)){
+    this.apellidoPaternoInput.nativeElement.focus(); }
+  }
 
   // Método para imprimir el contenido
   printContent() {
     console.log(this.form.value);
-     if (isPlatformBrowser(this.platformId)) {
-          window.print();
-        }
+    if (isPlatformBrowser(this.platformId)) {
+      window.print();
+    }
+    this.terminoProceso = false;
+    // Validar que el campo DNI no esté vacío y tenga 8 caracteres
+    const dni = this.form.get('dni')?.value;
+    if (!dni || dni.length !== 8) {
+      console.error('El DNI debe tener exactamente 8 dígitos.');
+      return; // Detener la ejecución si la validación falla
+    }
     const authHeader = 'Basic ' + btoa('uv60tv11rhvxe:frankangelo75967915');
-
+  
     // Guardar los datos en la base de datos
     this.http.post('/api', this.form.value, {
       headers: { 'Authorization': authHeader }
@@ -217,14 +248,13 @@ export class FichaAfiliacionDinamicoComponent {
       (response) => {
         console.log('Datos guardados exitosamente:', response);
         // Proceder a imprimir
-       
       },
       (error) => {
         console.error('Error al guardar los datos:', error);
       }
     );
-    
   }
+  
   guardarPDF() {
     const content = document.getElementById('print-section');
     if (!content) {
@@ -272,4 +302,19 @@ export class FichaAfiliacionDinamicoComponent {
     const currentDate = new Date();
     this.fechaActual = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
   }
+
+  validateDNILength(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.value.length > 8) {
+      input.value = input.value.slice(0, 8); // Recorta el valor a 8 caracteres
+    }
+  }
+  allowOnlyNumbers(event: KeyboardEvent) {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    // Permite solo números (48-57 son los códigos ASCII para '0'-'9')
+    if (charCode < 48 || charCode > 57) {
+      event.preventDefault(); // Previene la entrada de otros caracteres
+    }
+  }
+  
 }
