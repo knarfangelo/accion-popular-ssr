@@ -504,6 +504,11 @@ app-footer{
 .contenedor__color{
   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(227,227,227,1) 87%);
 }
+::placeholder {
+  color: red; /* Cambia el color del placeholder a rojo */
+  opacity: 1; /* Asegura que el placeholder sea completamente opaco */
+  font-size: 10px;
+}
 @media (width < 800px){
   .reaccion{
     padding: 0 30px;

@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { NgxPrintModule } from 'ngx-print';
 import { NavegacionComponent } from "../../layouts/navegacion/navegacion.component";
 import { FooterComponent } from "../../layouts/footer/footer.component";
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; // Importar HttpClient
@@ -59,89 +59,128 @@ import { IFichaAfiliacion } from './mantenimiento/fichaAfiliacion';
           </div>
 
           <div class="panel_3">
-            <p class="panel_3_titulo">DATOS PERSONALES</p>
-            <form [formGroup]="form"> <!-- Vincula el formulario -->
-              <div class="panel_3_flex1">
-                <label class="panel_3_flex1_label">Apellido Paterno
-                  <input class="input1" formControlName="apellidoPaterno" #apellidoPaterno> <!-- Cambia [(ngModel)] por formControlName -->
-                </label>
-                <label class="panel_3_flex1_label">Apellido Materno
-                  <input class="input2" formControlName="apellidoMaterno">
-                </label>
-                <label class="panel_3_flex1_label">Nombres
-                  <input type="text" formControlName="nombres">
-                </label>
-              </div>
+              <p class="panel_3_titulo">DATOS PERSONALES</p>
+              <form [formGroup]="form"> <!-- Vincula el formulario -->
+                <div class="panel_3_flex1">
+                  <label class="panel_3_flex1_label">Apellido Paterno
+                    <input class="input1" formControlName="apellidoPaterno" #apellidoPaterno 
+                      [placeholder]="form.get('apellidoPaterno')?.invalid && form.get('apellidoPaterno')?.touched ? 'Apellido Paterno es obligatorio.' : ''" 
+                      [ngClass]="{'input-error': form.get('apellidoPaterno')?.invalid && form.get('apellidoPaterno')?.touched}">
+                  </label>
+                  <label class="panel_3_flex1_label">Apellido Materno
+                    <input class="input2" formControlName="apellidoMaterno" 
+                      [placeholder]="form.get('apellidoMaterno')?.invalid && form.get('apellidoMaterno')?.touched ? 'Apellido Materno es obligatorio.' : ''"
+                      [ngClass]="{'input-error': form.get('apellidoMaterno')?.invalid && form.get('apellidoMaterno')?.touched}">
+                  </label>
+                  <label class="panel_3_flex1_label">Nombres
+                    <input type="text" formControlName="nombres" 
+                      [placeholder]="form.get('nombres')?.invalid && form.get('nombres')?.touched ? 'Nombres son obligatorios.' : ''"
+                      [ngClass]="{'input-error': form.get('nombres')?.invalid && form.get('nombres')?.touched}">
+                  </label>
+                </div>
 
-              <div class="panel_3_flex2">
-              <label class="panel_3_flex2_label">DNI
-  <input class="input1" formControlName="dni" type="text" maxlength="8" required 
-         (input)="validateDNILength($event)" (keypress)="allowOnlyNumbers($event)">
-            </label>
+                <div class="panel_3_flex2">
+                  <label class="panel_3_flex2_label">DNI
+                    <input class="input1" formControlName="dni" type="text" maxlength="8" required 
+                      (input)="validateDNILength($event)" (keypress)="allowOnlyNumbers($event)" 
+                      [placeholder]="form.get('dni')?.invalid && form.get('dni')?.touched ? 'DNI es obligatorio.' : ''"
+                      [ngClass]="{'input-error': form.get('dni')?.invalid && form.get('dni')?.touched}">
+                  </label>
 
+                  <label class="panel_3_flex2_label">Fecha de Nacimiento
+                    <input class="input2" type="date" formControlName="fechaNacimiento" 
+                      [placeholder]="form.get('fechaNacimiento')?.invalid && form.get('fechaNacimiento')?.touched ? 'Fecha de Nacimiento es obligatoria.' : ''"
+                      [ngClass]="{'input-error': form.get('fechaNacimiento')?.invalid && form.get('fechaNacimiento')?.touched}">
+                  </label>
+                  <label class="panel_3_flex2_label">Estado Civil
+                    <input class="input3" formControlName="estadoCivil" 
+                      [placeholder]="form.get('estadoCivil')?.invalid && form.get('estadoCivil')?.touched ? 'Estado Civil es obligatorio.' : ''"
+                      [ngClass]="{'input-error': form.get('estadoCivil')?.invalid && form.get('estadoCivil')?.touched}">
+                  </label>
+                  <label class="panel_3_flex2_label">Sexo
+                    <input class="input4" formControlName="sexo" 
+                      [placeholder]="form.get('sexo')?.invalid && form.get('sexo')?.touched ? 'genero.' : ''"
+                      [ngClass]="{'input-error': form.get('sexo')?.invalid && form.get('sexo')?.touched}">
+                  </label>
+                </div>
 
+                <div class="panel_3_flex3">
+                  <label class="panel_3_flex3_label">Lugar de Nacimiento: Región / Provincia / Distrito
+                    <input class="input1" formControlName="lugarNacimiento" 
+                      [placeholder]="form.get('lugarNacimiento')?.invalid && form.get('lugarNacimiento')?.touched ? 'Lugar de Nacimiento es obligatorio.' : ''"
+                      [ngClass]="{'input-error': form.get('lugarNacimiento')?.invalid && form.get('lugarNacimiento')?.touched}">
+                  </label>
+                </div>
+              </form>
+            </div>
 
-                <label class="panel_3_flex2_label">Fecha de Nacimiento
-                  <input class="input2" type="date" formControlName="fechaNacimiento">
-                </label>
-                <label class="panel_3_flex2_label">Estado Civil
-                  <input class="input3" formControlName="estadoCivil">
-                </label>
-                <label class="panel_3_flex2_label">Sexo
-                  <input class="input4" formControlName="sexo">
-                </label>
-              </div>
+            <div class="panel_4">
+              <p class="panel_4_titulo">DOMICILIO ACTUAL</p>
+              <form [formGroup]="form">
+                <div class="panel_4_flex1">
+                  <label class="panel_4_flex1_label">Región
+                    <input type="text" formControlName="regionActual" 
+                      [placeholder]="form.get('regionActual')?.invalid && form.get('regionActual')?.touched ? 'Región es obligatoria.' : ''"
+                      [ngClass]="{'input-error': form.get('regionActual')?.invalid && form.get('regionActual')?.touched}">
+                  </label>
+                  <label class="panel_4_flex1_label">Provincia
+                    <input type="text" formControlName="provinciaActual" 
+                      [placeholder]="form.get('provinciaActual')?.invalid && form.get('provinciaActual')?.touched ? 'Provincia es obligatoria.' : ''"
+                      [ngClass]="{'input-error': form.get('provinciaActual')?.invalid && form.get('provinciaActual')?.touched}">
+                  </label>
+                  <label class="panel_4_flex1_label">Distrito
+                    <input type="text" formControlName="distritoActual" 
+                      [placeholder]="form.get('distritoActual')?.invalid && form.get('distritoActual')?.touched ? 'Distrito es obligatorio.' : ''"
+                      [ngClass]="{'input-error': form.get('distritoActual')?.invalid && form.get('distritoActual')?.touched}">
+                  </label>
+                </div>
 
-              <div class="panel_3_flex3">
-                <label class="panel_3_flex3_label">Lugar de Nacimiento: Región / Provincia / Distrito
-                  <input class="input1" formControlName="lugarNacimiento">
-                </label>
-              </div>
-            </form>
-          </div>
+                <div class="panel_4_flex2">
+                  <label class="panel_4_flex2_label"><span>Avenida / Calle / Jirón</span>
+                    <input class="input1" type="text" formControlName="direccion" 
+                      [placeholder]="form.get('direccion')?.invalid && form.get('direccion')?.touched ? 'Dirección es obligatoria.' : ''"
+                      [ngClass]="{'input-error': form.get('direccion')?.invalid && form.get('direccion')?.touched}">
+                  </label>
+                </div>
 
-          <div class="panel_4">
-            <p class="panel_4_titulo">DOMICILIO ACTUAL</p>
-            <form [formGroup]="form">
-              <div class="panel_4_flex1">
-                <label class="panel_4_flex1_label">Región
-                  <input type="text" formControlName="regionActual">
-                </label>
-                <label class="panel_4_flex1_label">Provincia
-                  <input type="text" formControlName="provinciaActual">
-                </label>
-                <label class="panel_4_flex1_label">Distrito
-                  <input type="text" formControlName="distritoActual">
-                </label>
-              </div>
+                <div class="panel_4_flex3">
+                  <label class="panel_4_flex3_label">Urbanización – Sector – Caserío
+                    <input type="text" formControlName="urbanizacion" 
+                      [placeholder]="form.get('urbanizacion')?.invalid && form.get('urbanizacion')?.touched ? 'Urbanización es obligatoria.' : ''"
+                      [ngClass]="{'input-error': form.get('urbanizacion')?.invalid && form.get('urbanizacion')?.touched}">
+                  </label>
+                  <label class="panel_4_flex3_label">Teléfono
+                    <input type="text" formControlName="telefono" 
+                      [placeholder]="form.get('telefono')?.invalid && form.get('telefono')?.touched ? 'Teléfono es obligatorio.' : ''"
+                      [ngClass]="{'input-error': form.get('telefono')?.invalid && form.get('telefono')?.touched}">
+                  </label>
+                </div>
 
-              <div class="panel_4_flex2">
-                <label class="panel_4_flex2_label"><span>Avenida / Calle / Jirón</span>
-                  <input class="input1" type="text" formControlName="direccion">
-                </label>
-              </div>
+                <div class="panel_4_flex4">
+                  <label class="panel_4_flex4_label">Correo Electrónico
+                    <input type="text" formControlName="correo" 
+                      [placeholder]="form.get('correo')?.invalid && form.get('correo')?.touched ? 'Correo es obligatorio.' : ''"
+                      [ngClass]="{'input-error': form.get('correo')?.invalid && form.get('correo')?.touched}">
+                  </label>
+                </div>
+              </form>
+            </div>
 
-              <div class="panel_4_flex3">
-                <label class="panel_4_flex3_label">Urbanización – Sector – Caserío
-                  <input type="text" formControlName="urbanizacion">
-                </label>
-                <label class="panel_4_flex3_label">Teléfono
-                  <input type="text" formControlName="telefono">
-                </label>
-              </div>
-              <div class="panel_4_flex4">
-                <label class="panel_4_flex4_label">Correo Electrónico
-                  <input type="text" formControlName="correo">
-                </label>
-              </div>
-            </form>
-          </div>
-
-          <div class="panel_5">
-            <p class="panel_5_titulo">DECLARACIÓN JURADA DE NO PERTENCER A OTRA ORGANIZACIÓN POLÍTICA</p>
-            <p class="panel_5_parrafo">Yo…………………………………………………………………………………………………… con DNI N°…………………………………con domicilio legal en (Calle, Av.) …...……………………………………………………Distrito…………………………………Provincia…………………………………. Región ………………………, decido afiliarme libre y voluntariamente a la Organización Política…………………...… y al amparo del Artículo 18° de la Ley N° 28094 “Ley de Partidos Políticos”, para lo cuál <strong>DECLARO BAJO JURAMENTO NO PERTENECER A OTRA ORGANIZACIÓN POLÍTICA.</strong> Por tanto, de acuerdo a la Ley, me sujeto a las prerrogativas que corresponde, para lo cual firmo la presente Declaración Jurada.</p>
-          </div>
-
+            <div class="panel_5">
+  <p class="panel_5_titulo">DECLARACIÓN JURADA DE NO PERTENCER A OTRA ORGANIZACIÓN POLÍTICA</p>
+  <p class="panel_5_parrafo">
+    Yo <strong>{{ form.get('nombres')?.value || '________________' }}</strong> &nbsp;
+    <strong>{{ form.get('apellidoPaterno')?.value || '________________' }}</strong>&nbsp;
+    <strong>{{ form.get('apellidoMaterno')?.value || '________________' }}</strong>
+    con DNI N° <strong>{{ form.get('dni')?.value || '________________' }}</strong> 
+    con domicilio legal en (Calle, Av.) <strong>{{ form.get('direccion')?.value || '________________' }}</strong> 
+    Distrito <strong>{{ form.get('distritoActual')?.value || '________________' }}</strong> 
+    Provincia <strong>{{ form.get('provinciaActual')?.value || '________________' }}</strong> 
+    Región <strong>{{ form.get('regionActual')?.value || '________________' }}</strong>, 
+    decido afiliarme libre y voluntariamente a la Organización Política ACCIÓN POPULAR y al amparo del Artículo 18° de la Ley N° 28094 “Ley de Partidos Políticos”, 
+    para lo cual <strong>DECLARO BAJO JURAMENTO NO PERTENECER A OTRA ORGANIZACIÓN POLÍTICA.</strong> Por tanto, de acuerdo a la Ley, me sujeto a las prerrogativas que corresponde, para lo cual firmo la presente Declaración Jurada.
+  </p>
+</div>
           <div class="panel_6">
             <div class="firma_afiliado">
               ______________________________ <br>
@@ -192,21 +231,21 @@ export class FichaAfiliacionDinamicoComponent {
   ) {
     // Inicializar el formulario
     this.form = this.fb.group({
-      apellidoPaterno: [''],
-      apellidoMaterno: [''],
-      nombres: [''],
-      dni: [''],
-      fechaNacimiento: [''],
-      estadoCivil: [''],
-      sexo: [''],
-      lugarNacimiento: [''],
-      regionActual: [''],
-      provinciaActual: [''],
-      distritoActual: [''],
-      direccion: [''],
-      urbanizacion: [''],
-      telefono: [''],
-      correo: [''],
+      apellidoPaterno: ['', Validators.required],
+      apellidoMaterno: ['', Validators.required],
+      nombres: ['', Validators.required],
+      dni: ['', [Validators.required, Validators.pattern('^[0-9]{8}$')]], // 8 dígitos
+      fechaNacimiento: ['', Validators.required],
+      estadoCivil: ['', Validators.required],
+      sexo: ['', Validators.required],
+      lugarNacimiento: ['', Validators.required],
+      regionActual: ['', Validators.required],
+      provinciaActual: ['', Validators.required],
+      distritoActual: ['', Validators.required],
+      direccion: ['', Validators.required],
+      urbanizacion: ['', Validators.required],
+      telefono: ['', Validators.required],
+      correo: ['', Validators.required],
     });
     
   // Obtener la navegación actual
@@ -228,26 +267,34 @@ export class FichaAfiliacionDinamicoComponent {
 
   // Método para imprimir el contenido
   printContent() {
+    if (this.form.invalid) {
+      // Marcar todos los campos como tocados para mostrar los errores
+      this.form.markAllAsTouched();
+      console.error('Por favor completa todos los campos obligatorios.');
+      return; // Detener la ejecución si el formulario no es válido
+    }
+
     console.log(this.form.value);
+    
     if (isPlatformBrowser(this.platformId)) {
       window.print();
     }
+    
     this.terminoProceso = false;
-    // Validar que el campo DNI no esté vacío y tenga 8 caracteres
+
     const dni = this.form.get('dni')?.value;
     if (!dni || dni.length !== 8) {
       console.error('El DNI debe tener exactamente 8 dígitos.');
-      return; // Detener la ejecución si la validación falla
+      return; 
     }
+
     const authHeader = 'Basic ' + btoa('uv60tv11rhvxe:frankangelo75967915');
-  
-    // Guardar los datos en la base de datos
+
     this.http.post('/api', this.form.value, {
       headers: { 'Authorization': authHeader }
     }).subscribe(
       (response) => {
         console.log('Datos guardados exitosamente:', response);
-        // Proceder a imprimir
       },
       (error) => {
         console.error('Error al guardar los datos:', error);

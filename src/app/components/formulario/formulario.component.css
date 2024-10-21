@@ -16,6 +16,11 @@ label img{
   margin: auto;
   position: absolute;
 }
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
 input{
   height: 100%;
   margin-top:auto;
