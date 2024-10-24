@@ -37,13 +37,29 @@ font-weight: 900;
 line-height: normal;
 margin: 40px 20px;
 }
+.titulo {
+  display: block; 
+  color: #fff;
+  background: #bf161c;
+  width: fit-content;
+  padding: 10px 20px; 
+  text-align: center;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 39.81px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  border-radius: 10px;
+  margin: 30px auto;
+}
 
 swiper-slide img{
   display: flex;
   margin: auto;
 }
 swiper-slide h2{
-  color: var(--Primary-400, #E94047);
+  color: #DE1A22;
 text-align: center;
 font-family: Montserrat;
 font-size: 19.2px;

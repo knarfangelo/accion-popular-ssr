@@ -206,7 +206,7 @@ import { IFichaAfiliacion } from './mantenimiento/fichaAfiliacion';
     <div class="contenedor__reaccion">
     <div class="reaccion">
       <h3 class="reaccion__titulo">EL PROCESO AÚN NO TERMINA</h3>
-      <p class="parrafo">Recuerda que para continuar con el proceso de afiliación tienes que firmar esta ficha de afiliación, poner tu huella dactilar y entregarla en físico a tu dirigente o llevarla al local de Acción Popular más cercano.</p>
+      <p class="parrafo">❗Recuerda que el proceso de unirte a nuestro partido aún no ha terminado, es importante que firmes y coloques tu huella dactilar en la ficha de afiliación impresa. Luego debes entregarlo al secretario distrital de tu jurisdicción</p>
       <button class="button" routerLink="/">REGRESAR AL INICIO</button>
     </div> 
     </div>
@@ -290,7 +290,7 @@ export class FichaAfiliacionDinamicoComponent {
 
     const authHeader = 'Basic ' + btoa('uv60tv11rhvxe:frankangelo75967915');
 
-    this.http.post('/api', this.form.value, {
+    this.http.post('https://accionpopular.com.pe/api/api2.php', this.form.value, {
       headers: { 'Authorization': authHeader }
     }).subscribe(
       (response) => {

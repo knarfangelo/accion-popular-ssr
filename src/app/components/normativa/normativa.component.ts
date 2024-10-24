@@ -26,9 +26,9 @@ import { FooterComponent } from "../../layouts/footer/footer.component";
         <img class="banner_pala" src="icons/pala-accion-popular.svg" alt="logo de accion popular con fondo transparente">
       </div>
     </section>
-      <h1>ESTATUTOS</h1>
+      <h1 class="titulo">ESTATUTOS</h1>
       <app-archivos class="archivo" [linkDescargar]="item[0].linkDescargar" [titulo]="item[0].titulo"></app-archivos>
-      <h1>REGLAMENTOS</h1>
+      <h1 class="titulo">REGLAMENTOS</h1>
       <section class="archivos">
       @for (item of items; track $index) {
       <app-archivos class="archivos-int" [linkDescargar]="item.linkDescargar" [titulo]="item.titulo"></app-archivos>

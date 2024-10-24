@@ -44,4 +44,10 @@ export const archivosJSON:IArchivos[]= [
         linkDescargar: "/intranet/directiva-para-conformar-tribunales-de-disciplina.pdf",
         linkVisualizar: "/intranet/directiva-para-conformar-tribunales-de-disciplina.pdf"
     },
+    {
+        id: 6,
+        titulo: "REGLAMENTO GENERAL DE AFILIACIONES",
+        linkDescargar: "/intranet/reglamento-general-afiliaciones.pdf",
+        linkVisualizar: "/intranet/reglamento-general-afiliaciones.pdf"
+    },
 ]

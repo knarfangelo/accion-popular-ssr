@@ -46,7 +46,7 @@ line-height: normal;
 }
 .banner{
   display: flex;
-  background: linear-gradient(90deg, rgba(191, 22, 28, 0.90) 0%, rgba(255, 255, 255, 0.90) 66.8%);
+  background: rgba(255, 255, 255, 0.90) 66.8%;
   width: 90%;
   height: auto;
   margin: 55px auto;
